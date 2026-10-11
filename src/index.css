@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary-dark: #363C30;
+  --color-sage: #59866F;
+  --color-dusty-rose: #CE9199;
+  --color-slate-blue: #6E7FB7;
+  --color-sand: #E3DAAE;
+  --color-neutral-light: #EEEEEE;
+  --color-bg-main: #FAF8EC;
+  --color-text-main: #363C30;
+  --color-text-muted: #5C6454;
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', system-ui, -apple-system, sans-serif;
+    color: var(--color-text-main);
+    background-color: var(--color-bg-main);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .font-serif-italic {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+  }
+}
+
+/* ==========================================================================
+   Japanese Typography Optimization
+   ========================================================================== */
+html[lang="ja"] body,
+html[lang="ja"] [class*="font-['Inter']"],
+html[lang="ja"] .font-sans,
+:lang(ja) {
+  font-family: 'Inter', 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', system-ui, -apple-system, sans-serif !important;
+  font-feature-settings: "palt" 1;
+  letter-spacing: 0.02em;
+  line-break: strict;
+  word-break: auto-phrase;
+}
+
+/* Preserve serif italic highlights in Japanese mode */
+html[lang="ja"] .font-serif-italic,
+html[lang="ja"] [class*="font-serif"] {
+  font-family: 'Instrument Serif', Georgia, serif !important;
+}
+
+/* Custom scrollbar and smooth transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+::selection,
+*::selection {
+  background-color: #E3DAAE !important;
+  color: #363C30 !important;
+  -webkit-text-fill-color: #363C30 !important;
+}
+
+::-moz-selection,
+*::-moz-selection {
+  background-color: #E3DAAE !important;
+  color: #363C30 !important;
+}
