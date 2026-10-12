@@ -100,7 +100,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
         <div 
           className={`w-full overflow-hidden transition-all duration-300 ease-in-out ${
             mobileMenuOpen 
-              ? 'max-h-[380px] opacity-100 pt-7 pb-4' 
+              ? 'max-h-[460px] opacity-100 pt-7 pb-4' 
               : 'max-h-0 opacity-0 pointer-events-none'
           }`}
         >
@@ -137,6 +137,19 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
               style={{ color: '#363C30' }}
             >
               <span>{t.sidebar.gallery}</span>
+              <ArrowRight className="w-6 h-6 stroke-[2.2] transition-transform group-hover:translate-x-1" />
+            </a>
+
+            {/* Link 4: Read blog (External Link) */}
+            <a 
+              href="https://note.com/zende" 
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="group inline-flex items-center gap-2.5 font-['Inter'] font-medium text-[24px] sm:text-[28px] leading-tight tracking-tight transition-all"
+              style={{ color: '#363C30' }}
+            >
+              <span>{t.sidebar.readBlog}</span>
               <ArrowRight className="w-6 h-6 stroke-[2.2] transition-transform group-hover:translate-x-1" />
             </a>
 
@@ -295,6 +308,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
                 style={{ color: '#363C30' }}
               >
                 <span>{t.sidebar.gallery}</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 stroke-[2.2]" style={{ color: '#363C30' }} />
+              </a>
+            </div>
+            <div>
+              <a 
+                href="https://note.com/zende" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85"
+                style={{ color: '#363C30' }}
+              >
+                <span>{t.sidebar.readBlog}</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 stroke-[2.2]" style={{ color: '#363C30' }} />
               </a>
             </div>

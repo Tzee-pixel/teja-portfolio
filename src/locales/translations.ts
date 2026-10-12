@@ -7,6 +7,7 @@ export interface Translations {
     seeProjects: string;
     aboutMe: string;
     gallery: string;
+    readBlog: string;
     linkedIn: string;
     copied: string;
     menuOpen: string;
@@ -96,6 +97,7 @@ export const translations: Record<Language, Translations> = {
       seeProjects: "See all projects",
       aboutMe: "About me",
       gallery: "Gallery",
+      readBlog: "Read blog",
       linkedIn: "My LinkedIn",
       copied: "Copied to Clipboard",
       menuOpen: "menu",
@@ -110,7 +112,7 @@ export const translations: Record<Language, Translations> = {
     },
     metaStats: {
       experienceLabel: "Experience/",
-      experienceValue: "5 years",
+      experienceValue: "5+ years",
       specialisedLabel: "Specialised at/",
       specialisedValue: "UX/UI & product design",
       basedLabel: "Based in/",
@@ -183,6 +185,7 @@ export const translations: Record<Language, Translations> = {
       seeProjects: "プロジェクトを見る",
       aboutMe: "自己紹介",
       gallery: "ギャラリー",
+      readBlog: "ブログを読む",
       linkedIn: "LinkedIn",
       copied: "クリップボードにコピーしました",
       menuOpen: "メニュー",
@@ -197,7 +200,7 @@ export const translations: Record<Language, Translations> = {
     },
     metaStats: {
       experienceLabel: "経験年数/",
-      experienceValue: "5年",
+      experienceValue: "5年以上",
       specialisedLabel: "専門分野/",
       specialisedValue: "UI/UX・プロダクトデザイン",
       basedLabel: "現在地/",
