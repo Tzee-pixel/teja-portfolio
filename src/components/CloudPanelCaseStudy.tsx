@@ -81,9 +81,24 @@ export const CloudPanelCaseStudy: React.FC<CloudPanelCaseStudyProps> = ({ onBack
   return (
     <div className="min-h-screen bg-[#FAF8EC] text-[#363C30] font-sans antialiased selection:bg-[#E3DAAE] selection:text-[#363C30]">
       {/* ------------------------------------------------------------- */}
+      {/* MOBILE STICKY TOP BAR (< lg) - Sticks for the entire scroll   */}
+      {/* ------------------------------------------------------------- */}
+      <div className="w-full lg:hidden sticky top-0 z-40 bg-[#FAF8EC]/95 backdrop-blur-md border-b border-[#E3DAAE]/60 py-3.5 px-6 sm:px-10 shadow-[0_2px_12px_rgba(54,60,48,0.03)] transition-colors">
+        <div className="flex items-center h-[34px]">
+          <button
+            onClick={onBack}
+            className="group inline-flex items-center gap-2.5 text-[#363C30] hover:opacity-85 font-medium text-[15px] sm:text-[16px] transition-colors duration-200 cursor-pointer select-none"
+          >
+            <ArrowLeft className="w-4 h-4 stroke-[2.2] transition-transform group-hover:-translate-x-1" />
+            <span>{t.caseStudy.backToHome}</span>
+          </button>
+        </div>
+      </div>
+
+      {/* ------------------------------------------------------------- */}
       {/* UNIFIED 2-COLUMN LAYOUT (CENTERED)                             */}
       {/* ------------------------------------------------------------- */}
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-[60px] pt-8 sm:pt-10 lg:pt-[50px] pb-12 lg:pb-[40px] flex flex-col lg:flex-row gap-8 lg:gap-14 items-start">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-[60px] pt-6 sm:pt-8 lg:pt-[50px] pb-12 lg:pb-[40px] flex flex-col lg:flex-row gap-8 lg:gap-14 items-start">
         
         {/* ----------------------------------------------------------- */}
         {/* LEFT COLUMN: BACK LINK + FLOATING SIDEBAR + CONTACT         */}
@@ -91,8 +106,8 @@ export const CloudPanelCaseStudy: React.FC<CloudPanelCaseStudyProps> = ({ onBack
         <aside className="w-full lg:w-[260px] xl:w-[280px] lg:flex-shrink-0 lg:sticky lg:top-10 lg:h-[calc(100vh-80px)] flex flex-col justify-between self-start">
           
           <div>
-            {/* Top Row: Back to home page */}
-            <div className="h-[34px] flex items-center mb-6 sm:mb-7">
+            {/* Desktop Back button (hidden on mobile since sticky bar is above) */}
+            <div className="hidden lg:flex h-[34px] items-center mb-6 sm:mb-7">
               <button
                 onClick={onBack}
                 className="group inline-flex items-center gap-2.5 text-[#363C30] hover:opacity-85 font-medium text-[15px] sm:text-[16px] transition-colors duration-200 cursor-pointer select-none"

@@ -27,7 +27,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
       {/* ------------------------------------------------------------- */}
       {/* MOBILE & TABLET HEADER + EXPANDABLE MENU (< lg breakpoint)     */}
       {/* ------------------------------------------------------------- */}
-      <div className="w-full lg:hidden bg-[#FAF8EC] z-30 pt-6 sm:pt-8 px-6 sm:px-10">
+      <div className="w-full lg:hidden sticky top-0 z-40 bg-[#FAF8EC]/95 backdrop-blur-md border-b border-[#E3DAAE]/60 py-4 px-6 sm:px-10 shadow-[0_2px_12px_rgba(54,60,48,0.03)] transition-colors">
         {/* Top Bar Row: Profile Pill on Left, Menu/Close Button on Right */}
         <div className="flex items-center justify-between w-full">
           {/* Profile Pill */}
@@ -120,7 +120,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
 
             {/* Link 2: About me */}
             <a 
-              href="#about" 
+              href="#/about" 
               onClick={() => setMobileMenuOpen(false)}
               className="group inline-flex items-center gap-2.5 font-['Inter'] font-medium text-[24px] sm:text-[28px] leading-tight tracking-tight transition-all"
               style={{ color: '#363C30' }}
@@ -131,7 +131,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
 
             {/* Link 3: Gallery */}
             <a 
-              href="#gallery" 
+              href="#/gallery" 
               onClick={() => setMobileMenuOpen(false)}
               className="group inline-flex items-center gap-2.5 font-['Inter'] font-medium text-[24px] sm:text-[28px] leading-tight tracking-tight transition-all"
               style={{ color: '#363C30' }}
@@ -280,7 +280,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
             )}
             <div>
               <a 
-                href="#about" 
+                href="#/about" 
                 className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85"
                 style={{ color: '#363C30' }}
               >
@@ -290,7 +290,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
             </div>
             <div>
               <a 
-                href="#gallery" 
+                href="#/gallery" 
                 className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85"
                 style={{ color: '#363C30' }}
               >

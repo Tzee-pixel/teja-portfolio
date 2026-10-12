@@ -14,8 +14,10 @@ import { LocalBiteCaseStudy } from './components/LocalBiteCaseStudy';
 import { BirlaEstatesCaseStudy } from './components/BirlaEstatesCaseStudy';
 import { MagentoCaseStudy } from './components/MagentoCaseStudy';
 import { AllProjectsPage } from './components/AllProjectsPage';
+import { AboutPage } from './components/AboutPage';
+import { GalleryPage } from './components/GalleryPage';
 
-type ViewState = 'home' | 'projects' | 'cloudpanel' | 'localbite' | 'birla' | 'mgt-commerce';
+type ViewState = 'home' | 'projects' | 'about' | 'gallery' | 'cloudpanel' | 'localbite' | 'birla' | 'mgt-commerce';
 
 export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewState>('home');
@@ -33,6 +35,10 @@ export const App: React.FC = () => {
         setCurrentView('mgt-commerce');
       } else if (hash.includes('projects')) {
         setCurrentView('projects');
+      } else if (hash.includes('about')) {
+        setCurrentView('about');
+      } else if (hash.includes('gallery')) {
+        setCurrentView('gallery');
       } else {
         setCurrentView('home');
       }
@@ -67,6 +73,10 @@ export const App: React.FC = () => {
     switch (currentView) {
       case 'projects':
         return <AllProjectsPage onSelectProject={handleSelectProject} />;
+      case 'about':
+        return <AboutPage />;
+      case 'gallery':
+        return <GalleryPage />;
       case 'cloudpanel':
         return <CloudPanelCaseStudy onBack={() => navigateTo('home')} onSelectProject={handleSelectProject} />;
       case 'localbite':
