@@ -14,7 +14,7 @@ export const BlogSection: React.FC = () => {
         {/* Left Badge */}
         <div>
           <span 
-            className="inline-block px-3.5 py-1.5 rounded-[4px] font-['Inter'] font-semibold text-[13px] leading-[17px] tracking-normal shadow-xs whitespace-nowrap"
+            className="inline-block px-3.5 py-1.5 rounded-[4px] font-['Inter'] font-semibold text-[13px] leading-[17px] tracking-normal shadow-xs whitespace-nowrap transition-transform duration-300 hover:scale-105 select-none"
             style={{ backgroundColor: '#E3DAAE', color: '#363C30' }}
           >
             {t.blog.badge}

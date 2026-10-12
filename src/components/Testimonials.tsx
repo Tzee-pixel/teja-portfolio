@@ -52,7 +52,7 @@ export const Testimonials: React.FC = () => {
         >
           {t.testimonials.headingPrefix}{' '}
           <span 
-            className="font-serif-italic italic font-normal text-[1.15em] tracking-normal"
+            className="font-serif-italic italic font-normal text-[1.15em] tracking-normal editorial-italic-highlight cursor-default"
             style={{ 
               fontFamily: '"The Portray Italic", "Instrument Serif", "Playfair Display", Georgia, serif',
               color: '#363C30' 
@@ -75,7 +75,7 @@ export const Testimonials: React.FC = () => {
       <div className="relative z-10 flex flex-col pt-8 w-full">
         {/* Card 1: Sayan Chakraborty (Left) */}
         <div 
-          className="w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-start ml-0 mb-36"
+          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-start ml-0 mb-36 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(54,60,48,0.08)]"
           style={{
             border: '5px solid #E3DAAE',
           }}
@@ -84,7 +84,7 @@ export const Testimonials: React.FC = () => {
             <img 
               src={testimonials[0].avatar} 
               alt={testimonials[0].name} 
-              className="w-full h-full object-cover rounded-full"
+              className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-110"
             />
           </div>
           <h3 
@@ -103,7 +103,7 @@ export const Testimonials: React.FC = () => {
 
         {/* Card 2: Suma Chandrashekar (Center) */}
         <div 
-          className="w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-center mx-auto mb-36"
+          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-center mx-auto mb-36 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(54,60,48,0.08)]"
           style={{
             border: '5px solid #E3DAAE',
           }}
@@ -112,7 +112,7 @@ export const Testimonials: React.FC = () => {
             <img 
               src={testimonials[1].avatar} 
               alt={testimonials[1].name} 
-              className="w-full h-full object-cover rounded-full"
+              className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-110"
             />
           </div>
           <h3 
@@ -131,7 +131,7 @@ export const Testimonials: React.FC = () => {
 
         {/* Card 3: Satish Lokhande (Right - scroll ends with bottom aligned to subtitle) */}
         <div 
-          className="w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-end mr-0"
+          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-end mr-0 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(54,60,48,0.08)]"
           style={{
             border: '5px solid #E3DAAE',
           }}
@@ -140,7 +140,7 @@ export const Testimonials: React.FC = () => {
             <img 
               src={testimonials[2].avatar} 
               alt={testimonials[2].name} 
-              className="w-full h-full object-cover rounded-full"
+              className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-110"
             />
           </div>
           <h3 

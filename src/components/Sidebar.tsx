@@ -11,7 +11,7 @@ interface SidebarProps {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [copied, setCopied] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const email = "tzee.zende@gmail.com";
@@ -113,8 +113,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
               className="group inline-flex items-center gap-2.5 font-['Inter'] font-medium text-[24px] sm:text-[28px] leading-tight tracking-tight transition-all"
               style={{ color: '#363C30' }}
             >
-              <span>{t.sidebar.seeProjects}</span>
-              <ArrowRight className="w-6 h-6 stroke-[2.2] transition-transform group-hover:translate-x-1" />
+              <span className="editorial-link-underline">{t.sidebar.seeProjects}</span>
+              <ArrowRight className="w-6 h-6 stroke-[2.2] transition-transform group-hover:translate-x-1.5" />
             </a>
             )}
 
@@ -125,8 +125,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
               className="group inline-flex items-center gap-2.5 font-['Inter'] font-medium text-[24px] sm:text-[28px] leading-tight tracking-tight transition-all"
               style={{ color: '#363C30' }}
             >
-              <span>{t.sidebar.aboutMe}</span>
-              <ArrowRight className="w-6 h-6 stroke-[2.2] transition-transform group-hover:translate-x-1" />
+              <span className="editorial-link-underline">{t.sidebar.aboutMe}</span>
+              <ArrowRight className="w-6 h-6 stroke-[2.2] transition-transform group-hover:translate-x-1.5" />
             </a>
 
             {/* Link 3: Gallery */}
@@ -136,8 +136,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
               className="group inline-flex items-center gap-2.5 font-['Inter'] font-medium text-[24px] sm:text-[28px] leading-tight tracking-tight transition-all"
               style={{ color: '#363C30' }}
             >
-              <span>{t.sidebar.gallery}</span>
-              <ArrowRight className="w-6 h-6 stroke-[2.2] transition-transform group-hover:translate-x-1" />
+              <span className="editorial-link-underline">{t.sidebar.gallery}</span>
+              <ArrowRight className="w-6 h-6 stroke-[2.2] transition-transform group-hover:translate-x-1.5" />
             </a>
 
             {/* Link 4: Read blog (External Link) */}
@@ -149,8 +149,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
               className="group inline-flex items-center gap-2.5 font-['Inter'] font-medium text-[24px] sm:text-[28px] leading-tight tracking-tight transition-all"
               style={{ color: '#363C30' }}
             >
-              <span>{t.sidebar.readBlog}</span>
-              <ArrowRight className="w-6 h-6 stroke-[2.2] transition-transform group-hover:translate-x-1" />
+              <span className="editorial-link-underline">{t.sidebar.readBlog}</span>
+              <ArrowRight className="w-6 h-6 stroke-[2.2] transition-transform group-hover:translate-x-1.5" />
             </a>
 
             {/* Link 4: My LinkedIn */}
@@ -263,12 +263,19 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
           )}
 
           {/* Koboyo Interactive Page Mascot */}
-          <div className="-ml-[1.3rem] -mb-[0.6rem] flex items-center">
+          <div className="-ml-[1.3rem] -mb-[0.6rem] flex items-center animate-float-gentle transition-transform duration-300 relative group/mascot">
             <PageMascot 
               directions="/mascots/cat-directions.webp"
               reactions="/mascots/cat-reactions.webp"
               size={115} 
             />
+            {/* Playful Floating Speech Bubble on Hover */}
+            <div className="absolute -top-1 left-[88px] opacity-0 group-hover/mascot:opacity-100 transition-all duration-300 ease-out transform -translate-y-1 group-hover/mascot:translate-y-0 pointer-events-none z-20">
+              <div className="bg-[#363C30] text-[#FAF8EC] text-[11px] font-['Inter'] font-semibold py-1 px-2.5 rounded-full shadow-md whitespace-nowrap relative">
+                <span>{language === 'ja' ? 'ニャー！🐾' : 'Click me! 🐾'}</span>
+                <span className="absolute -bottom-1 left-3 w-2 h-2 bg-[#363C30] rotate-45" />
+              </div>
+            </div>
           </div>
 
           {/* Bio Text */}
@@ -287,8 +294,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
               className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85"
               style={{ color: '#363C30' }}
             >
-              <span>{t.sidebar.seeProjects}</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 stroke-[2.2]" style={{ color: '#363C30' }} />
+              <span className="editorial-link-underline">{t.sidebar.seeProjects}</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5 stroke-[2.2]" style={{ color: '#363C30' }} />
             </a>
             )}
             <div>
@@ -297,8 +304,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
                 className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85"
                 style={{ color: '#363C30' }}
               >
-                <span>{t.sidebar.aboutMe}</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 stroke-[2.2]" style={{ color: '#363C30' }} />
+                <span className="editorial-link-underline">{t.sidebar.aboutMe}</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5 stroke-[2.2]" style={{ color: '#363C30' }} />
               </a>
             </div>
             <div>
@@ -307,8 +314,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
                 className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85"
                 style={{ color: '#363C30' }}
               >
-                <span>{t.sidebar.gallery}</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 stroke-[2.2]" style={{ color: '#363C30' }} />
+                <span className="editorial-link-underline">{t.sidebar.gallery}</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5 stroke-[2.2]" style={{ color: '#363C30' }} />
               </a>
             </div>
             <div>
@@ -319,8 +326,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
                 className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85"
                 style={{ color: '#363C30' }}
               >
-                <span>{t.sidebar.readBlog}</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 stroke-[2.2]" style={{ color: '#363C30' }} />
+                <span className="editorial-link-underline">{t.sidebar.readBlog}</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5 stroke-[2.2]" style={{ color: '#363C30' }} />
               </a>
             </div>
           </div>

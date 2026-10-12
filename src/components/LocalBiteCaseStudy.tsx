@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { Footer } from './Footer';
 import { useLanguage } from '../context/LanguageContext';
+import { Reveal } from './Reveal';
 import { localbiteContent } from '../locales/caseStudies/localbite';
 import localbiteThumbnail from '../assets/localbite-thumbnail.png';
 import localbitePrototypeVideo from '../assets/localbite-prototype.mov';
@@ -177,20 +178,27 @@ export const LocalBiteCaseStudy: React.FC<LocalBiteCaseStudyProps> = ({ onBack, 
             </div>
 
             {/* Floating Navigation Card */}
-            <nav className="bg-[#FFFFFF] rounded-[24px] sm:rounded-[28px] py-[20px] px-[20px] sm:px-[24px] shadow-[0_10px_30px_rgba(54,60,48,0.06)] border border-[#E3DAAE]/50 flex flex-col gap-4 sm:gap-[18px]">
+            <nav className="bg-[#FFFFFF] rounded-[24px] sm:rounded-[28px] py-[20px] px-[20px] sm:px-[24px] shadow-[0_10px_30px_rgba(54,60,48,0.06)] border border-[#E3DAAE]/50 flex flex-col gap-3.5 sm:gap-4">
               {navItems.map((item) => {
                 const isActive = activeSection === item.id;
                 return (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`text-left font-['Inter'] text-[15px] sm:text-[16px] leading-[22px] transition-all duration-200 cursor-pointer ${
+                    className={`group/nav relative flex items-center gap-2.5 text-left font-['Inter'] text-[15px] sm:text-[16px] leading-[22px] transition-all duration-200 cursor-pointer ${
                       isActive
-                        ? 'font-bold text-[#363C30]'
-                        : 'font-medium text-[#5C6454] hover:text-[#363C30] active:scale-95'
+                        ? 'font-bold text-[#363C30] translate-x-1.5'
+                        : 'font-medium text-[#5C6454] hover:text-[#363C30] hover:translate-x-1.5 active:scale-95'
                     }`}
                   >
-                    {item.label}
+                    <span 
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                        isActive 
+                          ? 'bg-[#363C30] scale-100' 
+                          : 'bg-transparent scale-0 group-hover/nav:bg-[#E3DAAE] group-hover/nav:scale-100'
+                      }`} 
+                    />
+                    <span>{item.label}</span>
                   </button>
                 );
               })}
@@ -258,7 +266,7 @@ export const LocalBiteCaseStudy: React.FC<LocalBiteCaseStudyProps> = ({ onBack, 
         <main className="w-full flex-1 min-w-0 flex flex-col space-y-12 sm:space-y-16">
           
           {/* Hero Header */}
-          <div>
+          <Reveal delayMs={60}>
             <div className="h-[34px] flex items-center justify-between mb-6">
               <span className="inline-flex items-center justify-center px-3 py-1.5 rounded-[6px] font-['Inter'] font-semibold text-[12px] sm:text-[13px] bg-[#E3DAAE]/40 text-[#363C30]">
                 {content.hero.badge}
@@ -279,7 +287,7 @@ export const LocalBiteCaseStudy: React.FC<LocalBiteCaseStudyProps> = ({ onBack, 
 
             {/* Project Metadata - 4 Distinct Cards with Dashed Border */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-2">
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.typeLabel}
                 </span>
@@ -288,7 +296,7 @@ export const LocalBiteCaseStudy: React.FC<LocalBiteCaseStudyProps> = ({ onBack, 
                 </span>
               </div>
 
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.roleLabel}
                 </span>
@@ -297,7 +305,7 @@ export const LocalBiteCaseStudy: React.FC<LocalBiteCaseStudyProps> = ({ onBack, 
                 </span>
               </div>
 
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.platformLabel}
                 </span>
@@ -306,7 +314,7 @@ export const LocalBiteCaseStudy: React.FC<LocalBiteCaseStudyProps> = ({ onBack, 
                 </span>
               </div>
 
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.toolsLabel}
                 </span>
@@ -315,86 +323,88 @@ export const LocalBiteCaseStudy: React.FC<LocalBiteCaseStudyProps> = ({ onBack, 
                 </span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* ========================================================= */}
           {/* SECTION 1: ABOUT LOCALBITE                                */}
           {/* ========================================================= */}
-          <section id="about" className="scroll-mt-28">
-            <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30] mb-4">
-              {content.about.title}
-            </h2>
+          <Reveal delayMs={50}>
+            <section id="about" className="scroll-mt-28">
+              <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30] mb-4">
+                {content.about.title}
+              </h2>
 
-            <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-4">
-              {content.about.p1}
-            </p>
-
-            <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-3">
-              {content.about.p2}
-            </p>
-
-            <div className="border-l-2 border-[#E3DAAE] pl-4 my-4">
-              <p className="font-['Inter'] text-[17px] font-medium italic text-[#363C30]">
-                {content.about.coreQuestion}
+              <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-4">
+                {content.about.p1}
               </p>
-            </div>
 
-            <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-4">
-              {content.about.p3}
-            </p>
+              <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-3">
+                {content.about.p2}
+              </p>
 
-            <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-3">
-              {content.about.p4}
-            </p>
-
-            <p className="font-['Inter'] text-[15px] sm:text-[16px] leading-[26px] text-[#363C30] font-medium mb-4 italic">
-              {content.about.subQuestions}
-            </p>
-
-            <p className="font-['Inter'] text-[16px] leading-[26px] text-[#363C30] font-semibold mb-4">
-              {content.about.thesis}
-            </p>
-
-            <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-4">
-              {content.about.helpsHeader}
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-              <div className="bg-[#FAF8EC] border border-[#E3DAAE]/70 rounded-[12px] p-4 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-[#E3DAAE]/40 flex items-center justify-center shrink-0 text-[#363C30]">
-                  <Compass className="w-4 h-4 stroke-[2]" />
-                </span>
-                <span className="font-['Inter'] text-[15px] text-[#363C30] font-medium">{content.about.valueProps[0].label}</span>
+              <div className="border-l-2 border-[#E3DAAE] pl-4 my-4 transition-transform duration-300 hover:translate-x-1">
+                <p className="font-['Inter'] text-[17px] font-medium italic text-[#363C30]">
+                  {content.about.coreQuestion}
+                </p>
               </div>
-              <div className="bg-[#FAF8EC] border border-[#E3DAAE]/70 rounded-[12px] p-4 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-[#E3DAAE]/40 flex items-center justify-center shrink-0 text-[#363C30]">
-                  <BookOpen className="w-4 h-4 stroke-[2]" />
-                </span>
-                <span className="font-['Inter'] text-[15px] text-[#363C30] font-medium">{content.about.valueProps[1].label}</span>
-              </div>
-              <div className="bg-[#FAF8EC] border border-[#E3DAAE]/70 rounded-[12px] p-4 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-[#E3DAAE]/40 flex items-center justify-center shrink-0 text-[#363C30]">
-                  <MapPin className="w-4 h-4 stroke-[2]" />
-                </span>
-                <span className="font-['Inter'] text-[15px] text-[#363C30] font-medium">{content.about.valueProps[2].label}</span>
-              </div>
-              <div className="bg-[#FAF8EC] border border-[#E3DAAE]/70 rounded-[12px] p-4 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-[#E3DAAE]/40 flex items-center justify-center shrink-0 text-[#363C30]">
-                  <Bookmark className="w-4 h-4 stroke-[2]" />
-                </span>
-                <span className="font-['Inter'] text-[15px] text-[#363C30] font-medium">{content.about.valueProps[3].label}</span>
-              </div>
-            </div>
 
-            {/* VISUAL: LocalBite Overview Image */}
-            <div className="mt-6 mb-0 w-full rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E3DAAE]/60">
-              <img
-                src={localbiteThumbnail}
-                alt="LocalBite Overview"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </section>
+              <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-4">
+                {content.about.p3}
+              </p>
+
+              <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-3">
+                {content.about.p4}
+              </p>
+
+              <p className="font-['Inter'] text-[15px] sm:text-[16px] leading-[26px] text-[#363C30] font-medium mb-4 italic">
+                {content.about.subQuestions}
+              </p>
+
+              <p className="font-['Inter'] text-[16px] leading-[26px] text-[#363C30] font-semibold mb-4">
+                {content.about.thesis}
+              </p>
+
+              <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-4">
+                {content.about.helpsHeader}
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                <div className="group bg-[#FAF8EC] border border-[#E3DAAE]/70 rounded-[12px] p-4 flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#363C30] cursor-default">
+                  <span className="w-8 h-8 rounded-full bg-[#E3DAAE]/40 flex items-center justify-center shrink-0 text-[#363C30] transition-transform duration-300 group-hover:scale-110">
+                    <Compass className="w-4 h-4 stroke-[2]" />
+                  </span>
+                  <span className="font-['Inter'] text-[15px] text-[#363C30] font-medium">{content.about.valueProps[0].label}</span>
+                </div>
+                <div className="group bg-[#FAF8EC] border border-[#E3DAAE]/70 rounded-[12px] p-4 flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#363C30] cursor-default">
+                  <span className="w-8 h-8 rounded-full bg-[#E3DAAE]/40 flex items-center justify-center shrink-0 text-[#363C30] transition-transform duration-300 group-hover:scale-110">
+                    <BookOpen className="w-4 h-4 stroke-[2]" />
+                  </span>
+                  <span className="font-['Inter'] text-[15px] text-[#363C30] font-medium">{content.about.valueProps[1].label}</span>
+                </div>
+                <div className="group bg-[#FAF8EC] border border-[#E3DAAE]/70 rounded-[12px] p-4 flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#363C30] cursor-default">
+                  <span className="w-8 h-8 rounded-full bg-[#E3DAAE]/40 flex items-center justify-center shrink-0 text-[#363C30] transition-transform duration-300 group-hover:scale-110">
+                    <MapPin className="w-4 h-4 stroke-[2]" />
+                  </span>
+                  <span className="font-['Inter'] text-[15px] text-[#363C30] font-medium">{content.about.valueProps[2].label}</span>
+                </div>
+                <div className="group bg-[#FAF8EC] border border-[#E3DAAE]/70 rounded-[12px] p-4 flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#363C30] cursor-default">
+                  <span className="w-8 h-8 rounded-full bg-[#E3DAAE]/40 flex items-center justify-center shrink-0 text-[#363C30] transition-transform duration-300 group-hover:scale-110">
+                    <Bookmark className="w-4 h-4 stroke-[2]" />
+                  </span>
+                  <span className="font-['Inter'] text-[15px] text-[#363C30] font-medium">{content.about.valueProps[3].label}</span>
+                </div>
+              </div>
+
+              {/* VISUAL: LocalBite Overview Image */}
+              <div className="mt-6 mb-0 w-full rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E3DAAE]/60 transition-transform duration-500 hover:scale-[1.01]">
+                <img
+                  src={localbiteThumbnail}
+                  alt="LocalBite Overview"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </section>
+          </Reveal>
 
           {/* ========================================================= */}
           {/* SECTION 2: THE PROTOTYPE                                  */}

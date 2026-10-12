@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'default' }) => {
           >
             {t.footer.headingPrefix}{language === 'en' ? ' ' : ''}
             <span 
-              className="font-serif-italic italic font-normal text-[1.15em] tracking-normal"
+              className="font-serif-italic italic font-normal text-[1.15em] tracking-normal editorial-italic-highlight cursor-default inline-block"
               style={{ 
                 fontFamily: '"The Portray Italic", "Instrument Serif", "Playfair Display", Georgia, serif',
                 color: primaryColor 

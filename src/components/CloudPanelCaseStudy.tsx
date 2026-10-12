@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { Footer } from './Footer';
 import { useLanguage } from '../context/LanguageContext';
+import { Reveal } from './Reveal';
 import { cloudpanelContent } from '../locales/caseStudies/cloudpanel';
 import cloudpanelVideo from '../assets/cloudpanel-homepage-desktop.mov';
 import cloudpanelMobileVideo from '../assets/cloudpanel-mobile-homepage.mov';
@@ -118,20 +119,27 @@ export const CloudPanelCaseStudy: React.FC<CloudPanelCaseStudyProps> = ({ onBack
             </div>
 
             {/* Floating Navigation Card */}
-            <nav className="bg-[#FFFFFF] rounded-[24px] sm:rounded-[28px] py-[20px] px-[20px] sm:px-[24px] shadow-[0_10px_30px_rgba(54,60,48,0.06)] border border-[#E3DAAE]/50 flex flex-col gap-4 sm:gap-[18px]">
+            <nav className="bg-[#FFFFFF] rounded-[24px] sm:rounded-[28px] py-[20px] px-[20px] sm:px-[24px] shadow-[0_10px_30px_rgba(54,60,48,0.06)] border border-[#E3DAAE]/50 flex flex-col gap-3.5 sm:gap-4">
               {navItems.map((item) => {
                 const isActive = activeSection === item.id;
                 return (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`text-left font-['Inter'] text-[15px] sm:text-[16px] leading-[22px] transition-all duration-200 cursor-pointer ${
+                    className={`group/nav relative flex items-center gap-2.5 text-left font-['Inter'] text-[15px] sm:text-[16px] leading-[22px] transition-all duration-200 cursor-pointer ${
                       isActive
-                        ? 'font-bold text-[#363C30]'
-                        : 'font-medium text-[#5C6454] hover:text-[#363C30] active:scale-95'
+                        ? 'font-bold text-[#363C30] translate-x-1.5'
+                        : 'font-medium text-[#5C6454] hover:text-[#363C30] hover:translate-x-1.5 active:scale-95'
                     }`}
                   >
-                    {item.label}
+                    <span 
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                        isActive 
+                          ? 'bg-[#363C30] scale-100' 
+                          : 'bg-transparent scale-0 group-hover/nav:bg-[#E3DAAE] group-hover/nav:scale-100'
+                      }`} 
+                    />
+                    <span>{item.label}</span>
                   </button>
                 );
               })}
@@ -199,7 +207,7 @@ export const CloudPanelCaseStudy: React.FC<CloudPanelCaseStudyProps> = ({ onBack
         <main className="w-full flex-1 min-w-0 flex flex-col space-y-12 sm:space-y-16">
           
           {/* Hero Header */}
-          <div>
+          <Reveal delayMs={60}>
             <div className="h-[34px] flex items-center justify-between mb-6">
               <span className="inline-flex items-center justify-center px-3 py-1.5 rounded-[6px] font-['Inter'] font-semibold text-[12px] sm:text-[13px] bg-[#E3DAAE]/40 text-[#363C30]">
                 {content.hero.badge}
@@ -226,7 +234,7 @@ export const CloudPanelCaseStudy: React.FC<CloudPanelCaseStudyProps> = ({ onBack
 
             {/* Project Metadata - 4 Distinct Cards with Dashed Border */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-2">
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.industryLabel}
                 </span>
@@ -235,7 +243,7 @@ export const CloudPanelCaseStudy: React.FC<CloudPanelCaseStudyProps> = ({ onBack
                 </span>
               </div>
 
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.roleLabel}
                 </span>
@@ -244,7 +252,7 @@ export const CloudPanelCaseStudy: React.FC<CloudPanelCaseStudyProps> = ({ onBack
                 </span>
               </div>
 
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.timelineLabel}
                 </span>
@@ -253,7 +261,7 @@ export const CloudPanelCaseStudy: React.FC<CloudPanelCaseStudyProps> = ({ onBack
                 </span>
               </div>
 
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.teamLabel}
                 </span>
@@ -262,112 +270,118 @@ export const CloudPanelCaseStudy: React.FC<CloudPanelCaseStudyProps> = ({ onBack
                 </span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
 
           {/* ========================================================= */}
           {/* SECTION 1: INTRODUCTION                                   */}
           {/* ========================================================= */}
-          <section id="introduction" className="scroll-mt-28">
-            <div className="my-6 w-full rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E3DAAE]/60">
-              <img
-                src={cloudpanelIntroImage}
-                alt="CloudPanel Homepage Introduction"
-                className="w-full h-auto object-cover"
-              />
-            </div>
+          <Reveal delayMs={60}>
+            <section id="introduction" className="scroll-mt-28">
+              <div className="my-6 w-full rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E3DAAE]/60 transition-transform duration-500 hover:scale-[1.01]">
+                <img
+                  src={cloudpanelIntroImage}
+                  alt="CloudPanel Homepage Introduction"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
 
-            <div className="my-6 w-full rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E3DAAE]/60">
-              <img
-                src={cloudpanelOtherPages}
-                alt="CloudPanel Other Pages"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </section>
+              <div className="my-6 w-full rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E3DAAE]/60 transition-transform duration-500 hover:scale-[1.01]">
+                <img
+                  src={cloudpanelOtherPages}
+                  alt="CloudPanel Other Pages"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </section>
+          </Reveal>
 
           {/* ========================================================= */}
           {/* SECTION 2: RESULTS                                        */}
           {/* ========================================================= */}
-          <section id="what-changed" className="scroll-mt-28 pt-8">
-            {/* Header: Title on Left, Subtext on Right */}
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-12 mb-8">
-              <h2 className="font-['Inter'] font-medium text-[32px] sm:text-[38px] text-[#363C30] tracking-tight shrink-0">
-                {content.results.title}
-              </h2>
-              <p className="font-['Inter'] text-[15px] sm:text-[16px] leading-[26px] text-[#5C6454] max-w-xl">
-                {content.results.subtitle}
-              </p>
-            </div>
+          <Reveal delayMs={60}>
+            <section id="what-changed" className="scroll-mt-28 pt-8">
+              {/* Header: Title on Left, Subtext on Right */}
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-12 mb-8">
+                <h2 className="font-['Inter'] font-medium text-[32px] sm:text-[38px] text-[#363C30] tracking-tight shrink-0">
+                  {content.results.title}
+                </h2>
+                <p className="font-['Inter'] text-[15px] sm:text-[16px] leading-[26px] text-[#5C6454] max-w-xl">
+                  {content.results.subtitle}
+                </p>
+              </div>
 
-            {/* 3 Metrics Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-4">
-              {content.results.metrics.map((metric, idx) => (
-                <div key={idx} className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[16px] p-6 sm:p-7 flex flex-col justify-end min-h-[140px] sm:min-h-[150px]">
-                  <div>
-                    <span className="font-['Inter'] font-bold text-[36px] sm:text-[44px] text-[#363C30] block leading-none mb-2">
-                      {metric.value}
-                    </span>
-                    <span className="font-['Inter'] text-[14px] sm:text-[15px] text-[#5C6454]">
-                      {metric.label}
-                    </span>
+              {/* 3 Metrics Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-4">
+                {content.results.metrics.map((metric, idx) => (
+                  <div key={idx} className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[16px] p-6 sm:p-7 flex flex-col justify-end min-h-[140px] sm:min-h-[150px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(54,60,48,0.06)] group">
+                    <div>
+                      <span className="font-['Inter'] font-bold text-[36px] sm:text-[44px] text-[#363C30] block leading-none mb-2 transition-transform duration-300 group-hover:scale-105 origin-left">
+                        {metric.value}
+                      </span>
+                      <span className="font-['Inter'] text-[14px] sm:text-[15px] text-[#5C6454]">
+                        {metric.label}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-            {/* Footnote with subtle dashed prefix line */}
-            <div className="flex items-center gap-3 pt-2">
-              <span className="w-6 h-[1px] bg-[#E3DAAE]" />
-              <p className="font-['Inter'] text-[12px] sm:text-[13px] italic text-[#5C6454]/70">
-                {content.results.footnote}
-              </p>
-            </div>
-          </section>
+              {/* Footnote with subtle dashed prefix line */}
+              <div className="flex items-center gap-3 pt-2">
+                <span className="w-6 h-[1px] bg-[#E3DAAE]" />
+                <p className="font-['Inter'] text-[12px] sm:text-[13px] italic text-[#5C6454]/70">
+                  {content.results.footnote}
+                </p>
+              </div>
+            </section>
+          </Reveal>
 
           {/* ========================================================= */}
           {/* SECTION 3: THE CHALLENGE                                  */}
           {/* ========================================================= */}
-          <section id="challenge" className="scroll-mt-28 pt-8">
-            <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30] mb-4">
-              {content.challenge.title}
-            </h2>
+          <Reveal delayMs={50}>
+            <section id="challenge" className="scroll-mt-28 pt-8">
+              <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30] mb-4">
+                {content.challenge.title}
+              </h2>
 
-            <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-4">
-              {content.challenge.p1}
-            </p>
-
-            <ul className="list-disc list-inside space-y-2 font-['Inter'] font-medium text-[16px] text-[#363C30] pl-2 mb-4">
-              {content.challenge.bullets.map((b, i) => (
-                <li key={i}>{b}</li>
-              ))}
-            </ul>
-
-            <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-6">
-              {content.challenge.p2}
-            </p>
-
-            {/* Old Homepage Image */}
-            <div className="my-6 w-full rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E3DAAE]/60">
-              <img
-                src={oldCloudpanel}
-                alt="Old CloudPanel Homepage Annotated"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-
-            {/* Caption */}
-            <div className="flex items-center gap-3 -mt-3 mb-6">
-              <span className="w-6 h-[1px] bg-[#E3DAAE]" />
-              <p className="font-['Inter'] text-[12px] sm:text-[13px] italic text-[#5C6454]/70">
-                {content.challenge.oldDesignCaption}
+              <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-4">
+                {content.challenge.p1}
               </p>
-            </div>
 
-            <blockquote className="border-l-4 border-[#363C30] pl-4 my-6 italic text-[17px] sm:text-[18px] text-[#363C30] font-medium">
-              {content.challenge.quote}
-            </blockquote>
-          </section>
+              <ul className="list-disc list-inside space-y-2 font-['Inter'] font-medium text-[16px] text-[#363C30] pl-2 mb-4">
+                {content.challenge.bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+
+              <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-6">
+                {content.challenge.p2}
+              </p>
+
+              {/* Old Homepage Image */}
+              <div className="my-6 w-full rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E3DAAE]/60 transition-transform duration-500 hover:scale-[1.01]">
+                <img
+                  src={oldCloudpanel}
+                  alt="Old CloudPanel Homepage Annotated"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+
+              {/* Caption */}
+              <div className="flex items-center gap-3 -mt-3 mb-6">
+                <span className="w-6 h-[1px] bg-[#E3DAAE]" />
+                <p className="font-['Inter'] text-[12px] sm:text-[13px] italic text-[#5C6454]/70">
+                  {content.challenge.oldDesignCaption}
+                </p>
+              </div>
+
+              <blockquote className="border-l-4 border-[#363C30] pl-4 my-6 italic text-[17px] sm:text-[18px] text-[#363C30] font-medium transition-transform duration-300 hover:translate-x-1">
+                {content.challenge.quote}
+              </blockquote>
+            </section>
+          </Reveal>
 
           {/* ========================================================= */}
           {/* SECTION 4: FINDING WHERE EXPERIENCE BROKE DOWN           */}
@@ -530,84 +544,55 @@ export const CloudPanelCaseStudy: React.FC<CloudPanelCaseStudyProps> = ({ onBack
           {/* ========================================================= */}
           {/* SECTION 6: DESIGN SYSTEM                                  */}
           {/* ========================================================= */}
-          <section id="design-system" className="scroll-mt-28 pt-8">
-            <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30] mb-4">
-              {content.designSystem.title}
-            </h2>
+          <Reveal delayMs={50}>
+            <section id="design-system" className="scroll-mt-28 pt-8">
+              <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30] mb-4">
+                {content.designSystem.title}
+              </h2>
 
-            <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-4">
-              {content.designSystem.description}
-            </p>
+              <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-4">
+                {content.designSystem.description}
+              </p>
 
-            <ul className="list-disc pl-5 space-y-2 font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-6">
-              <li>
-                <strong className="text-[#363C30] font-medium">{content.designSystem.typographyTitle}</strong> {content.designSystem.typographyDesc}
-              </li>
-              <li>
-                <strong className="text-[#363C30] font-medium">{content.designSystem.colorTitle}</strong> {content.designSystem.colorDesc}
-              </li>
-            </ul>
+              <ul className="list-disc pl-5 space-y-2 font-['Inter'] text-[16px] leading-[26px] text-[#5C6454] mb-6">
+                <li>
+                  <strong className="text-[#363C30] font-medium">{content.designSystem.typographyTitle}</strong> {content.designSystem.typographyDesc}
+                </li>
+                <li>
+                  <strong className="text-[#363C30] font-medium">{content.designSystem.colorTitle}</strong> {content.designSystem.colorDesc}
+                </li>
+              </ul>
 
-            {/* VISUAL: CloudPanel Design System */}
-            <div className="my-6 w-full rounded-[24px] bg-[#CE9199] py-8 sm:py-12 px-6 sm:px-12 flex items-center justify-center">
-              <div className="w-full max-w-[860px] rounded-[16px] sm:rounded-[20px] overflow-hidden shadow-lg bg-white">
-                <img
-                  src={cloudpanelDesignSystem}
-                  alt="CloudPanel Design System - Typography scale and brand color palette tokens"
-                  className="w-full h-auto object-cover"
-                />
+              {/* VISUAL: CloudPanel Design System */}
+              <div className="my-6 w-full rounded-[24px] bg-[#CE9199] py-8 sm:py-12 px-6 sm:px-12 flex items-center justify-center transition-transform duration-500 hover:scale-[1.01]">
+                <div className="w-full max-w-[860px] rounded-[16px] sm:rounded-[20px] overflow-hidden shadow-lg bg-white">
+                  <img
+                    src={cloudpanelDesignSystem}
+                    alt="CloudPanel Design System - Typography scale and brand color palette tokens"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </Reveal>
 
           {/* ========================================================= */}
           {/* SECTION 7: THE FINAL EXPERIENCE                           */}
           {/* ========================================================= */}
-          <section id="final-experience" className="scroll-mt-28 pt-8">
-            <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30] mb-4">
-              {content.finalExperience.title}
-            </h2>
+          <Reveal delayMs={50}>
+            <section id="final-experience" className="scroll-mt-28 pt-8">
+              <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30] mb-4">
+                {content.finalExperience.title}
+              </h2>
 
-            {/* Tablet Mockup Video Showcase */}
-            <div className="my-6 w-full rounded-[24px] bg-[#CE9199] py-8 sm:py-12 px-6 sm:px-12 flex items-center justify-center">
-              {/* Tablet Frame with Thin Black Rounded Border */}
-              <div className="w-full max-w-[740px] rounded-[16px] sm:rounded-[20px] border-[2.5px] sm:border-[3px] border-[#000000] p-[2.5px] bg-[#000000] overflow-hidden">
-                {/* Screen Content Wrapper */}
-                <div className="relative w-full rounded-[11px] sm:rounded-[15px] overflow-hidden bg-black aspect-[16/10] sm:aspect-[16/9]">
-                  <video
-                    src={cloudpanelVideo}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Final Product Screens Showcase */}
-            <div className="my-6 w-full rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E3DAAE]/60 shadow-[0_4px_20px_rgba(54,60,48,0.04)]">
-              <img
-                src={cloudpanelAllScreens}
-                alt="CloudPanel Redesigned Screens Overview"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-
-            <div className="mt-8 space-y-4">
-              <h3 className="font-['Inter'] font-medium text-[22px] text-[#363C30]">
-                {content.finalExperience.mobileTitle}
-              </h3>
-
-              {/* Mobile Phone Mockup Video Showcase */}
-              <div className="my-6 w-full rounded-[24px] bg-[#CE9199] py-8 sm:py-12 px-6 sm:px-12 flex items-center justify-center">
-                {/* Phone Frame with Thin Black Rounded Border matching Tablet */}
-                <div className="w-full max-w-[280px] sm:max-w-[300px] rounded-[24px] sm:rounded-[28px] border-[2.5px] sm:border-[3px] border-[#000000] p-[2.5px] bg-[#000000] overflow-hidden">
+              {/* Tablet Mockup Video Showcase */}
+              <div className="my-6 w-full rounded-[24px] bg-[#CE9199] py-8 sm:py-12 px-6 sm:px-12 flex items-center justify-center transition-transform duration-500 hover:scale-[1.01]">
+                {/* Tablet Frame with Thin Black Rounded Border */}
+                <div className="w-full max-w-[740px] rounded-[16px] sm:rounded-[20px] border-[2.5px] sm:border-[3px] border-[#000000] p-[2.5px] bg-[#000000] overflow-hidden shadow-2xl">
                   {/* Screen Content Wrapper */}
-                  <div className="relative w-full rounded-[19px] sm:rounded-[23px] overflow-hidden bg-black aspect-[9/19.5]">
+                  <div className="relative w-full rounded-[11px] sm:rounded-[15px] overflow-hidden bg-black aspect-[16/10] sm:aspect-[16/9]">
                     <video
-                      src={cloudpanelMobileVideo}
+                      src={cloudpanelVideo}
                       autoPlay
                       loop
                       muted
@@ -618,74 +603,111 @@ export const CloudPanelCaseStudy: React.FC<CloudPanelCaseStudyProps> = ({ onBack
                 </div>
               </div>
 
-              <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454]">
-                {content.finalExperience.mobileDesc}
-              </p>
-            </div>
-          </section>
+              {/* Final Product Screens Showcase */}
+              <div className="my-6 w-full rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E3DAAE]/60 shadow-[0_4px_20px_rgba(54,60,48,0.04)] transition-transform duration-500 hover:scale-[1.01]">
+                <img
+                  src={cloudpanelAllScreens}
+                  alt="CloudPanel Redesigned Screens Overview"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+
+              <div className="mt-8 space-y-4">
+                <h3 className="font-['Inter'] font-medium text-[22px] text-[#363C30]">
+                  {content.finalExperience.mobileTitle}
+                </h3>
+
+                {/* Mobile Phone Mockup Video Showcase */}
+                <div className="my-6 w-full rounded-[24px] bg-[#CE9199] py-8 sm:py-12 px-6 sm:px-12 flex items-center justify-center transition-transform duration-500 hover:scale-[1.01]">
+                  {/* Phone Frame with Thin Black Rounded Border matching Tablet */}
+                  <div className="w-full max-w-[280px] sm:max-w-[300px] rounded-[24px] sm:rounded-[28px] border-[2.5px] sm:border-[3px] border-[#000000] p-[2.5px] bg-[#000000] overflow-hidden shadow-2xl">
+                    {/* Screen Content Wrapper */}
+                    <div className="relative w-full rounded-[19px] sm:rounded-[23px] overflow-hidden bg-black aspect-[9/19.5]">
+                      <video
+                        src={cloudpanelMobileVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <p className="font-['Inter'] text-[16px] leading-[26px] text-[#5C6454]">
+                  {content.finalExperience.mobileDesc}
+                </p>
+              </div>
+            </section>
+          </Reveal>
 
           {/* ========================================================= */}
           {/* SECTION 9: THE RESULT & LEARNINGS                        */}
           {/* ========================================================= */}
-          <section id="results" className="scroll-mt-28 pt-8">
-            <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30] mb-6">
-              {content.reflections.title}
-            </h2>
+          <Reveal delayMs={50}>
+            <section id="results" className="scroll-mt-28 pt-8">
+              <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30] mb-6">
+                {content.reflections.title}
+              </h2>
 
-            {/* Combined Results & Takeaways Card with Dashed Border */}
-            <div className="border-2 border-dashed border-[#E3DAAE] rounded-[24px] overflow-hidden bg-transparent">
-              {/* Top Metrics Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-dashed divide-[#E3DAAE]">
-                {content.reflections.metrics.map((metric, idx) => (
-                  <div key={idx} className="p-6 sm:p-7 flex flex-col justify-between">
-                    <span className="font-['Inter'] text-[15px] sm:text-[16px] text-[#5C6454] mb-3">
-                      {metric.label}
-                    </span>
-                    <span className="font-['Inter'] font-bold text-[36px] sm:text-[42px] text-[#363C30] leading-none">
-                      {metric.value}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Bottom Learnings / Takeaways Bulleted List */}
-              <div className="border-t-2 border-dashed border-[#E3DAAE] p-6 sm:p-8">
-                <ul className="space-y-4 font-['Inter'] text-[15px] sm:text-[16px] leading-[26px] text-[#5C6454]">
-                  {content.reflections.takeaways.map((takeaway, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="text-[#363C30] mt-1.5 select-none leading-none text-[18px]">•</span>
-                      <span>
-                        {takeaway.bold && (
-                          <strong className="text-[#363C30] font-semibold">{takeaway.bold} </strong>
-                        )}
-                        {takeaway.text}
+              {/* Combined Results & Takeaways Card with Dashed Border */}
+              <div className="border-2 border-dashed border-[#E3DAAE] rounded-[24px] overflow-hidden bg-transparent">
+                {/* Top Metrics Row */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-dashed divide-[#E3DAAE]">
+                  {content.reflections.metrics.map((metric, idx) => (
+                    <div key={idx} className="p-6 sm:p-7 flex flex-col justify-between group transition-colors duration-200 hover:bg-[#E3DAAE]/20">
+                      <span className="font-['Inter'] text-[15px] sm:text-[16px] text-[#5C6454] mb-3">
+                        {metric.label}
                       </span>
-                    </li>
+                      <span className="font-['Inter'] font-bold text-[36px] sm:text-[42px] text-[#363C30] leading-none transition-transform duration-300 group-hover:scale-105 origin-left">
+                        {metric.value}
+                      </span>
+                    </div>
                   ))}
-                </ul>
+                </div>
+
+                {/* Bottom Learnings / Takeaways Bulleted List */}
+                <div className="border-t-2 border-dashed border-[#E3DAAE] p-6 sm:p-8">
+                  <ul className="space-y-4 font-['Inter'] text-[15px] sm:text-[16px] leading-[26px] text-[#5C6454]">
+                    {content.reflections.takeaways.map((takeaway, idx) => (
+                      <li key={idx} className="flex items-start gap-3 transition-transform duration-200 hover:translate-x-1">
+                        <span className="text-[#363C30] mt-1.5 select-none leading-none text-[18px]">•</span>
+                        <span>
+                          {takeaway.bold && (
+                            <strong className="text-[#363C30] font-semibold">{takeaway.bold} </strong>
+                          )}
+                          {takeaway.text}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </Reveal>
 
           {/* ========================================================= */}
           {/* SECTION 10: NEXT PROJECT                                  */}
           {/* ========================================================= */}
-          <section className="pt-6">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30]">
-                {content.footer.moreProjects}
-              </h2>
-              <button 
-                onClick={() => window.location.hash = '#/projects'}
-                className="px-5 py-2.5 rounded-[8px] bg-[#363C30] text-white font-medium text-[14px] hover:opacity-90 transition-opacity cursor-pointer shadow-sm"
-              >
-                {content.footer.viewAll}
-              </button>
-            </div>
-            <div className="-mx-2 sm:mx-0">
-              <ProjectGrid onSelectProject={onSelectProject} excludeId="cloudpanel" limit={2} />
-            </div>
-          </section>
+          <Reveal delayMs={50}>
+            <section className="pt-6">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="font-['Inter'] font-medium text-[28px] sm:text-[32px] text-[#363C30]">
+                  {content.footer.moreProjects}
+                </h2>
+                <button 
+                  onClick={() => window.location.hash = '#/projects'}
+                  className="px-5 py-2.5 rounded-[8px] bg-[#363C30] text-white font-medium text-[14px] hover:opacity-90 transition-opacity cursor-pointer shadow-sm hover:scale-105 active:scale-95 duration-200"
+                >
+                  {content.footer.viewAll}
+                </button>
+              </div>
+              <div className="-mx-2 sm:mx-0">
+                <ProjectGrid onSelectProject={onSelectProject} excludeId="cloudpanel" limit={2} />
+              </div>
+            </section>
+          </Reveal>
         </main>
       </div>
       <Footer />

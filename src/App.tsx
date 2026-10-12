@@ -16,6 +16,9 @@ import { MagentoCaseStudy } from './components/MagentoCaseStudy';
 import { AllProjectsPage } from './components/AllProjectsPage';
 import { AboutPage } from './components/AboutPage';
 import { GalleryPage } from './components/GalleryPage';
+import { Reveal } from './components/Reveal';
+import { ScrollProgressBar } from './components/ScrollProgressBar';
+import { BackToTop } from './components/BackToTop';
 
 type ViewState = 'home' | 'projects' | 'about' | 'gallery' | 'cloudpanel' | 'localbite' | 'birla' | 'mgt-commerce';
 
@@ -92,16 +95,24 @@ export const App: React.FC = () => {
               <Sidebar />
               <main className="px-6 sm:px-10 pt-4 sm:pt-6 pb-12 lg:border-l-2 lg:border-dashed lg:border-[#E3DAAE] lg:ml-6 lg:pl-10 xl:ml-10 xl:pl-16 lg:pt-[54px] lg:pb-12 lg:pr-[60px] w-full flex-1 min-w-0">
                 <div>
-                  <EditorialHeadline />
-                  <div className="mt-3 sm:mt-4">
+                  <Reveal delayMs={50}>
+                    <EditorialHeadline />
+                  </Reveal>
+                  <Reveal delayMs={120} className="mt-3 sm:mt-4">
                     <MetaStats />
-                  </div>
-                  <div className="mt-8 sm:mt-10 md:mt-12">
+                  </Reveal>
+                  <Reveal delayMs={180} className="mt-8 sm:mt-10 md:mt-12">
                     <ProjectGrid onSelectProject={handleSelectProject} />
-                  </div>
-                  <Testimonials />
-                  <BlogSection />
-                  <SocialLinksSection />
+                  </Reveal>
+                  <Reveal delayMs={100}>
+                    <Testimonials />
+                  </Reveal>
+                  <Reveal delayMs={100}>
+                    <BlogSection />
+                  </Reveal>
+                  <Reveal delayMs={100}>
+                    <SocialLinksSection />
+                  </Reveal>
                 </div>
               </main>
             </div>
@@ -113,9 +124,14 @@ export const App: React.FC = () => {
 
   return (
     <LanguageProvider>
-      {renderCurrentView()}
+      <ScrollProgressBar />
+      <div key={currentView} className="animate-page-enter min-h-screen">
+        {renderCurrentView()}
+      </div>
       {/* Floating Minimalist Language Switcher (Bottom-Right) */}
       <LanguageSwitcher />
+      {/* Floating Back to Top Button */}
+      <BackToTop />
     </LanguageProvider>
   );
 };

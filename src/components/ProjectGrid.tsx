@@ -9,6 +9,7 @@ import mgtMockup2 from '../assets/mgt-commerce-mockup-2.png';
 
 const noiseTexture = `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`;
 
+import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 interface ProjectItem {
@@ -156,14 +157,17 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ onSelectProject, exclu
     <section id="projects" className="pt-2 sm:pt-3 pb-4 sm:pb-6 overflow-visible">
       {/* Responsive Card Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-5 sm:gap-y-6 gap-x-6 sm:gap-x-7">
-        {projects.map((project) => {
+        {projects.map((project, idx) => {
           const isOverflowVisible = project.overflow === 'visible';
 
           return (
             <article
               key={project.id}
               onClick={() => onSelectProject?.(project.id)}
-              className="group relative flex flex-col rounded-[16px] bg-transparent cursor-pointer select-none transition-all duration-300 hover:-translate-y-2 overflow-visible pt-4 sm:pt-5"
+              className="group relative flex flex-col rounded-[16px] bg-transparent cursor-pointer select-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(54,60,48,0.08)] overflow-visible pt-4 sm:pt-5"
+              style={{
+                animationDelay: `${idx * 100}ms`,
+              }}
             >
               {/* ------------------------------------------------------------- */}
               {/* TOP SHOWCASE BACKDROP BOX                                     */}
@@ -179,6 +183,11 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ onSelectProject, exclu
                   className="absolute inset-0 w-full h-full rounded-t-[16px] pointer-events-none opacity-25 mix-blend-overlay z-0"
                   style={{ backgroundImage: noiseTexture }}
                 />
+
+                {/* Subtle Light Shimmer Sweep on Hover */}
+                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden rounded-t-[16px] z-20">
+                  <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-light-sweep transition-opacity duration-300 pointer-events-none" />
+                </div>
 
                 {project.renderMockup()}
               </div>
@@ -217,20 +226,25 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ onSelectProject, exclu
                 {/* Top-Left Folder Tab Chip Badge */}
                 <div className="absolute top-2 sm:top-2.5 left-4 sm:left-5 z-30 pointer-events-none">
                   <span 
-                    className="inline-block px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-[4px] font-['Inter'] font-semibold text-[12px] sm:text-[13px] leading-tight tracking-normal select-none"
+                    className="inline-block px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-[4px] font-['Inter'] font-semibold text-[12px] sm:text-[13px] leading-tight tracking-normal select-none transition-transform duration-300 group-hover:scale-105"
                     style={{ backgroundColor: '#FAF8EC', color: '#363C30' }}
                   >
                     {project.tag}
                   </span>
                 </div>
 
-                {/* Project Title */}
-                <h3 
-                  className="font-['Inter'] font-bold text-[22px] sm:text-[24px] md:text-[25px] leading-[26px] sm:leading-[28px] md:leading-[30px] tracking-tight relative z-30 whitespace-pre-line"
-                  style={{ color: '#1E2319' }}
-                >
-                  {project.title}
-                </h3>
+                {/* Project Title & Interactive Arrow Pill */}
+                <div className="flex items-end justify-between gap-3 relative z-30">
+                  <h3 
+                    className="font-['Inter'] font-bold text-[22px] sm:text-[24px] md:text-[25px] leading-[26px] sm:leading-[28px] md:leading-[30px] tracking-tight whitespace-pre-line flex-1"
+                    style={{ color: '#1E2319' }}
+                  >
+                    {project.title}
+                  </h3>
+                  <div className="w-8 h-8 rounded-full bg-[#FAF8EC] text-[#363C30] group-hover:bg-[#363C30] group-hover:text-[#FAF8EC] flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 shadow-xs mb-0.5">
+                    <ArrowUpRight className="w-4 h-4 stroke-[2.2] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                </div>
               </div>
             </article>
           );

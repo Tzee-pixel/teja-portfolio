@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { Footer } from './Footer';
 import { useLanguage } from '../context/LanguageContext';
+import { Reveal } from './Reveal';
 import { magentoContent } from '../locales/caseStudies/magento';
 import mgtVisual1 from '../assets/mgt-commmerce-visual-1.png';
 import mgtVisual2 from '../assets/mgt-commmerce-visual-2.png';
@@ -119,20 +120,27 @@ export const MagentoCaseStudy: React.FC<MagentoCaseStudyProps> = ({ onBack, onSe
             </div>
 
             {/* Floating Navigation Card */}
-            <nav className="bg-[#FFFFFF] rounded-[24px] sm:rounded-[28px] py-[20px] px-[20px] sm:px-[24px] shadow-[0_10px_30px_rgba(54,60,48,0.06)] border border-[#E3DAAE]/50 flex flex-col gap-4 sm:gap-[18px]">
+            <nav className="bg-[#FFFFFF] rounded-[24px] sm:rounded-[28px] py-[20px] px-[20px] sm:px-[24px] shadow-[0_10px_30px_rgba(54,60,48,0.06)] border border-[#E3DAAE]/50 flex flex-col gap-3.5 sm:gap-4">
               {navItems.map((item) => {
                 const isActive = activeSection === item.id;
                 return (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`text-left font-['Inter'] text-[15px] sm:text-[16px] leading-[22px] transition-all duration-200 cursor-pointer ${
+                    className={`group/nav relative flex items-center gap-2.5 text-left font-['Inter'] text-[15px] sm:text-[16px] leading-[22px] transition-all duration-200 cursor-pointer ${
                       isActive
-                        ? 'font-bold text-[#363C30]'
-                        : 'font-medium text-[#5C6454] hover:text-[#363C30] active:scale-95'
+                        ? 'font-bold text-[#363C30] translate-x-1.5'
+                        : 'font-medium text-[#5C6454] hover:text-[#363C30] hover:translate-x-1.5 active:scale-95'
                     }`}
                   >
-                    {item.label}
+                    <span 
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                        isActive 
+                          ? 'bg-[#363C30] scale-100' 
+                          : 'bg-transparent scale-0 group-hover/nav:bg-[#E3DAAE] group-hover/nav:scale-100'
+                      }`} 
+                    />
+                    <span>{item.label}</span>
                   </button>
                 );
               })}
@@ -200,7 +208,7 @@ export const MagentoCaseStudy: React.FC<MagentoCaseStudyProps> = ({ onBack, onSe
         <main className="w-full flex-1 min-w-0 flex flex-col space-y-12 sm:space-y-16">
           
           {/* Hero Header */}
-          <div>
+          <Reveal delayMs={60}>
             <div className="h-[34px] flex items-center justify-between mb-6">
               <span className="inline-flex items-center justify-center px-3 py-1.5 rounded-[6px] font-['Inter'] font-semibold text-[12px] sm:text-[13px] bg-[#E3DAAE]/40 text-[#363C30]">
                 {content.hero.badge}
@@ -227,7 +235,7 @@ export const MagentoCaseStudy: React.FC<MagentoCaseStudyProps> = ({ onBack, onSe
 
             {/* Project Metadata - 4 Distinct Cards with Dashed Border */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-2">
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.industryLabel}
                 </span>
@@ -236,7 +244,7 @@ export const MagentoCaseStudy: React.FC<MagentoCaseStudyProps> = ({ onBack, onSe
                 </span>
               </div>
 
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.roleLabel}
                 </span>
@@ -245,7 +253,7 @@ export const MagentoCaseStudy: React.FC<MagentoCaseStudyProps> = ({ onBack, onSe
                 </span>
               </div>
 
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.timelineLabel}
                 </span>
@@ -254,7 +262,7 @@ export const MagentoCaseStudy: React.FC<MagentoCaseStudyProps> = ({ onBack, onSe
                 </span>
               </div>
 
-              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between">
+              <div className="bg-transparent border-2 border-dashed border-[#E3DAAE] rounded-[14px] p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_4px_16px_rgba(54,60,48,0.04)] hover:-translate-y-0.5">
                 <span className="font-['Inter'] text-[12px] font-medium tracking-wide uppercase text-[#5C6454]/80 mb-1">
                   {content.hero.meta.teamLabel}
                 </span>
@@ -263,7 +271,7 @@ export const MagentoCaseStudy: React.FC<MagentoCaseStudyProps> = ({ onBack, onSe
                 </span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* ========================================================= */}
           {/* SECTION 1: INTRODUCTION                                   */}

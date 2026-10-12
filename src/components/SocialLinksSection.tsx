@@ -37,10 +37,10 @@ export const SocialLinksSection: React.FC = () => {
                 href="https://note.com/zende"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-[5px] p-4 sm:p-5 flex items-center justify-between group transition-all duration-200 hover:shadow-[0_2px_10px_rgba(54,60,48,0.08)]"
+                className="bg-white rounded-[5px] p-4 sm:p-5 flex items-center justify-between group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_6px_20px_rgba(54,60,48,0.08)] active:scale-[0.99]"
               >
                 {/* Note.com Icon Squircle (Black squircle with white 'n') */}
-                <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-[14px] flex items-center justify-center overflow-hidden flex-shrink-0 shadow-xs bg-black">
+                <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-[14px] flex items-center justify-center overflow-hidden flex-shrink-0 shadow-xs bg-black transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src={noteIconBlack} 
                     alt="note.com logo" 
@@ -71,10 +71,10 @@ export const SocialLinksSection: React.FC = () => {
                 href="https://www.linkedin.com/in/tejashree-zende/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-[5px] p-4 sm:p-5 flex items-center justify-between group transition-all duration-200 hover:shadow-[0_2px_10px_rgba(54,60,48,0.08)]"
+                className="bg-white rounded-[5px] p-4 sm:p-5 flex items-center justify-between group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_6px_20px_rgba(54,60,48,0.08)] active:scale-[0.99]"
               >
                 {/* LinkedIn Icon Squircle */}
-                <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-[14px] flex items-center justify-center overflow-hidden flex-shrink-0 shadow-xs">
+                <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-[14px] flex items-center justify-center overflow-hidden flex-shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src={linkedinIcon} 
                     alt="LinkedIn logo" 

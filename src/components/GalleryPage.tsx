@@ -3,6 +3,7 @@ import { Sidebar } from './Sidebar';
 import { Footer } from './Footer';
 import { useLanguage } from '../context/LanguageContext';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Reveal } from './Reveal';
 
 // Eagerly import all gallery images sorted numerically from 01 to 35
 const imageModules = import.meta.glob<{ default: string }>('../gallery/*.avif', { eager: true });
@@ -57,7 +58,7 @@ export const GalleryPage: React.FC = () => {
         <main className="px-6 sm:px-10 pt-4 sm:pt-6 pb-16 lg:border-l-2 lg:border-dashed lg:border-[#E3DAAE] lg:ml-6 lg:pl-10 xl:ml-10 xl:pl-16 lg:pt-[54px] lg:pb-16 lg:pr-[60px] w-full flex-1 min-w-0">
           <div>
             {/* Header */}
-            <div className="mb-8 sm:mb-10">
+            <Reveal delayMs={60} className="mb-8 sm:mb-10">
               <h1 
                 className="text-[32px] sm:text-[42px] md:text-[52px] leading-[38px] sm:leading-[48px] md:leading-[58px] font-medium tracking-[-0.02em] select-none mb-3"
                 style={{ 
@@ -103,27 +104,28 @@ export const GalleryPage: React.FC = () => {
                   ? 'ケーススタディ以外のUI探求、コンセプトワーク、ビジュアル実験のコレクション。'
                   : 'A collection of UI explorations, concept designs, and visual experiments created outside of the main case studies.'}
               </p>
-            </div>
+            </Reveal>
 
             {/* Responsive Gallery: 1 column on mobile (< sm), 2 columns on sm+ */}
             
             {/* Mobile View (< sm): Single column displaying 1 image at a time in strict 1-35 order */}
             <div className="flex sm:hidden flex-col gap-4 max-w-[1150px]">
               {galleryImages.map((src, index) => (
-                <div 
-                  key={index}
-                  onClick={() => openLightbox(index)}
-                  className="group relative rounded-[18px] overflow-hidden bg-[#FAF8EC] border-2 border-dashed border-[#E3DAAE] shadow-[0_2px_14px_rgba(54,60,48,0.04)] cursor-pointer transition-all duration-300 active:scale-[0.99]"
-                >
-                  <div className="overflow-hidden rounded-[14px] m-1.5 bg-[#EFE9D2]">
-                    <img 
-                      src={src} 
-                      alt={`Gallery image ${index + 1}`}
-                      loading="lazy"
-                      className="w-full h-auto object-cover select-none"
-                    />
+                <Reveal key={index} delayMs={(index % 3) * 60} distancePx={20}>
+                  <div 
+                    onClick={() => openLightbox(index)}
+                    className="group relative rounded-[18px] overflow-hidden bg-[#FAF8EC] border-2 border-dashed border-[#E3DAAE] shadow-[0_2px_14px_rgba(54,60,48,0.04)] cursor-pointer transition-all duration-300 active:scale-[0.99]"
+                  >
+                    <div className="overflow-hidden rounded-[14px] m-1.5 bg-[#EFE9D2]">
+                      <img 
+                        src={src} 
+                        alt={`Gallery image ${index + 1}`}
+                        loading="lazy"
+                        className="w-full h-auto object-cover select-none"
+                      />
+                    </div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
 
@@ -135,22 +137,23 @@ export const GalleryPage: React.FC = () => {
                   .map((src, index) => ({ src, index }))
                   .filter((_, i) => i % 2 === 0)
                   .map(({ src, index }) => (
-                    <div 
-                      key={index}
-                      onClick={() => openLightbox(index)}
-                      className="group relative rounded-[20px] lg:rounded-[24px] overflow-hidden bg-[#FAF8EC] border-2 border-dashed border-[#E3DAAE] shadow-[0_2px_14px_rgba(54,60,48,0.04)] cursor-pointer transition-all duration-300 hover:shadow-[0_10px_28px_rgba(54,60,48,0.12)] hover:-translate-y-1"
-                    >
-                      <div className="overflow-hidden rounded-[15px] lg:rounded-[18px] m-1.5 lg:m-2 bg-[#EFE9D2]">
-                        <img 
-                          src={src} 
-                          alt={`Gallery image ${index + 1}`}
-                          loading="lazy"
-                          className="w-full h-auto object-cover select-none transition-transform duration-500 ease-out group-hover:scale-[1.025]"
-                        />
+                    <Reveal key={index} delayMs={(index % 4) * 50} distancePx={24}>
+                      <div 
+                        onClick={() => openLightbox(index)}
+                        className="group relative rounded-[20px] lg:rounded-[24px] overflow-hidden bg-[#FAF8EC] border-2 border-dashed border-[#E3DAAE] shadow-[0_2px_14px_rgba(54,60,48,0.04)] cursor-pointer transition-all duration-300 hover:shadow-[0_10px_28px_rgba(54,60,48,0.12)] hover:-translate-y-1"
+                      >
+                        <div className="overflow-hidden rounded-[15px] lg:rounded-[18px] m-1.5 lg:m-2 bg-[#EFE9D2]">
+                          <img 
+                            src={src} 
+                            alt={`Gallery image ${index + 1}`}
+                            loading="lazy"
+                            className="w-full h-auto object-cover select-none transition-transform duration-500 ease-out group-hover:scale-[1.025]"
+                          />
+                        </div>
+                        {/* Subtle hover overlay */}
+                        <div className="absolute inset-0 bg-[#363C30]/0 group-hover:bg-[#363C30]/5 transition-colors duration-300 pointer-events-none rounded-[20px] lg:rounded-[24px]" />
                       </div>
-                      {/* Subtle hover overlay */}
-                      <div className="absolute inset-0 bg-[#363C30]/0 group-hover:bg-[#363C30]/5 transition-colors duration-300 pointer-events-none rounded-[20px] lg:rounded-[24px]" />
-                    </div>
+                    </Reveal>
                   ))}
               </div>
 
@@ -160,22 +163,23 @@ export const GalleryPage: React.FC = () => {
                   .map((src, index) => ({ src, index }))
                   .filter((_, i) => i % 2 === 1)
                   .map(({ src, index }) => (
-                    <div 
-                      key={index}
-                      onClick={() => openLightbox(index)}
-                      className="group relative rounded-[20px] lg:rounded-[24px] overflow-hidden bg-[#FAF8EC] border-2 border-dashed border-[#E3DAAE] shadow-[0_2px_14px_rgba(54,60,48,0.04)] cursor-pointer transition-all duration-300 hover:shadow-[0_10px_28px_rgba(54,60,48,0.12)] hover:-translate-y-1"
-                    >
-                      <div className="overflow-hidden rounded-[15px] lg:rounded-[18px] m-1.5 lg:m-2 bg-[#EFE9D2]">
-                        <img 
-                          src={src} 
-                          alt={`Gallery image ${index + 1}`}
-                          loading="lazy"
-                          className="w-full h-auto object-cover select-none transition-transform duration-500 ease-out group-hover:scale-[1.025]"
-                        />
+                    <Reveal key={index} delayMs={((index % 4) * 50) + 40} distancePx={24}>
+                      <div 
+                        onClick={() => openLightbox(index)}
+                        className="group relative rounded-[20px] lg:rounded-[24px] overflow-hidden bg-[#FAF8EC] border-2 border-dashed border-[#E3DAAE] shadow-[0_2px_14px_rgba(54,60,48,0.04)] cursor-pointer transition-all duration-300 hover:shadow-[0_10px_28px_rgba(54,60,48,0.12)] hover:-translate-y-1"
+                      >
+                        <div className="overflow-hidden rounded-[15px] lg:rounded-[18px] m-1.5 lg:m-2 bg-[#EFE9D2]">
+                          <img 
+                            src={src} 
+                            alt={`Gallery image ${index + 1}`}
+                            loading="lazy"
+                            className="w-full h-auto object-cover select-none transition-transform duration-500 ease-out group-hover:scale-[1.025]"
+                          />
+                        </div>
+                        {/* Subtle hover overlay */}
+                        <div className="absolute inset-0 bg-[#363C30]/0 group-hover:bg-[#363C30]/5 transition-colors duration-300 pointer-events-none rounded-[20px] lg:rounded-[24px]" />
                       </div>
-                      {/* Subtle hover overlay */}
-                      <div className="absolute inset-0 bg-[#363C30]/0 group-hover:bg-[#363C30]/5 transition-colors duration-300 pointer-events-none rounded-[20px] lg:rounded-[24px]" />
-                    </div>
+                    </Reveal>
                   ))}
               </div>
             </div>

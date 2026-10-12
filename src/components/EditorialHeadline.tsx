@@ -16,7 +16,7 @@ export const EditorialHeadline: React.FC = () => {
         <>
           {t.headline.prefix}{' '}
           <span 
-            className="font-serif-italic italic font-normal tracking-normal pr-1 text-[1.06em]"
+            className="font-serif-italic italic font-normal tracking-normal pr-1 text-[1.06em] editorial-italic-highlight cursor-default"
             style={{ 
               fontFamily: '"The Portray Italic", "Instrument Serif", "Playfair Display", Georgia, serif',
               color: '#363C30', 
@@ -26,7 +26,7 @@ export const EditorialHeadline: React.FC = () => {
           </span>
           , move with{' '}
           <span 
-            className="font-serif-italic italic font-normal tracking-normal pr-1 text-[1.06em]"
+            className="font-serif-italic italic font-normal tracking-normal pr-1 text-[1.06em] editorial-italic-highlight cursor-default"
             style={{ 
               fontFamily: '"The Portray Italic", "Instrument Serif", "Playfair Display", Georgia, serif',
               color: '#363C30', 
@@ -36,7 +36,7 @@ export const EditorialHeadline: React.FC = () => {
           </span>
           , &amp;{' '}
           <span 
-            className="font-serif-italic italic font-normal tracking-normal pr-1 text-[1.06em]"
+            className="font-serif-italic italic font-normal tracking-normal pr-1 text-[1.06em] editorial-italic-highlight cursor-default"
             style={{ 
               fontFamily: '"The Portray Italic", "Instrument Serif", "Playfair Display", Georgia, serif',
               color: '#363C30', 
@@ -50,7 +50,7 @@ export const EditorialHeadline: React.FC = () => {
         <>
           {t.headline.prefix}
           <span 
-            className="font-serif-italic italic font-normal tracking-normal px-1 text-[1.06em]"
+            className="font-serif-italic italic font-normal tracking-normal px-1 text-[1.06em] editorial-italic-highlight cursor-default"
             style={{ 
               fontFamily: '"The Portray Italic", "Instrument Serif", "Playfair Display", Georgia, serif',
               color: '#363C30', 
@@ -60,7 +60,7 @@ export const EditorialHeadline: React.FC = () => {
           </span>
           し、
           <span 
-            className="font-serif-italic italic font-normal tracking-normal px-1 text-[1.06em]"
+            className="font-serif-italic italic font-normal tracking-normal px-1 text-[1.06em] editorial-italic-highlight cursor-default"
             style={{ 
               fontFamily: '"The Portray Italic", "Instrument Serif", "Playfair Display", Georgia, serif',
               color: '#363C30', 
@@ -70,7 +70,7 @@ export const EditorialHeadline: React.FC = () => {
           </span>
           に行動し、
           <span 
-            className="font-serif-italic italic font-normal tracking-normal px-1 text-[1.06em]"
+            className="font-serif-italic italic font-normal tracking-normal px-1 text-[1.06em] editorial-italic-highlight cursor-default"
             style={{ 
               fontFamily: '"The Portray Italic", "Instrument Serif", "Playfair Display", Georgia, serif',
               color: '#363C30', 
