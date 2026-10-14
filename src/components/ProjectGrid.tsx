@@ -64,7 +64,7 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ onSelectProject, exclu
     },
 
     // -------------------------------------------------------------
-    // CARD 2: Discover Local Speciality (TOP OVERFLOW)
+    // CARD 2: Helping people discover local specialities (TOP OVERFLOW)
     // -------------------------------------------------------------
     {
       id: 'localbite',
@@ -95,7 +95,7 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ onSelectProject, exclu
     },
 
     // -------------------------------------------------------------
-    // CARD 3: Birla Estates Dashboard UI & UX Design
+    // CARD 3: One dashboard to track 8 property projects and their tasks
     // -------------------------------------------------------------
     {
       id: 'birla',
@@ -236,7 +236,7 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ onSelectProject, exclu
                 {/* Project Title & Interactive Arrow Pill */}
                 <div className="flex items-end justify-between gap-3 relative z-30">
                   <h3 
-                    className="font-['Inter'] font-bold text-[22px] sm:text-[24px] md:text-[25px] leading-[26px] sm:leading-[28px] md:leading-[30px] tracking-tight whitespace-pre-line flex-1"
+                    className="font-['Inter'] font-bold text-[18px] sm:text-[20px] md:text-[21px] leading-[24px] sm:leading-[26px] md:leading-[28px] tracking-tight whitespace-pre-line flex-1"
                     style={{ color: '#1E2319' }}
                   >
                     {project.title}

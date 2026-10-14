@@ -43,6 +43,9 @@ export interface Translations {
     headingPrefix: string;
     headingHighlight: string;
     subtitle: string;
+    card1Role: string;
+    card2Role: string;
+    card3Role: string;
     card1Quote: string;
     card2Quote: string;
     card3Quote: string;
@@ -120,19 +123,22 @@ export const translations: Record<Language, Translations> = {
     },
     projects: {
       cloudpanelTag: "Website Redesign",
-      cloudpanelTitle: "CloudPanel Website Redesign\nUI and UX Design",
+      cloudpanelTitle: "A CloudPanel website redesign that lifted engagement by 30%",
       localbiteTag: "UX Research",
-      localbiteTitle: "Discover local speciality with this mobile app",
+      localbiteTitle: "Helping people discover the local specialities of any place they visit",
       birlaTag: "Product design",
-      birlaTitle: "Birla Estates Dashboard UI & UX Design",
+      birlaTitle: "One dashboard to track 8 property projects and their tasks",
       magentoTag: "Website Redesign",
-      magentoTitle: "MGT-Commerce Website UI & UX Design",
+      magentoTitle: "MGT-Commerce redesign: Making Magento hosting plans easy to compare",
     },
     testimonials: {
       tag: "Testimonials",
       headingPrefix: "Words from",
       headingHighlight: "colleagues",
       subtitle: "Feedback from people I've had the pleasure of working\u00A0with.",
+      card1Role: "AI Artist & Senior Designer at i2e consulting pvt ltd",
+      card2Role: "System Administrator Team Lead at MGT-Commerce",
+      card3Role: "UI/UX Designer Team Lead at Somaiya University",
       card1Quote: "She is an exceptionally talented creative professional with extensive expertise in graphic design and UI/UX.\n\nWhat I admire most about Tejashree is her exceptional eye for detail, creative thinking, and ability to solve design challenges effectively. Her technical expertise, clear communication, and ability to explain concepts thoughtfully make her an excellent mentor and leader.",
       card2Quote: "What makes Tejashree stand out as a designer is her unique ability to collaborate with engineering and master complex technical concepts.\n\nShe was quick to understand technical terms and logic and designed completely accurate, development-ready solutions based on them. Her cross-functional communication is excellent, and she showed incredible leadership potential by bridging the gap between design and engineering.",
       card3Quote: "She is a quick learner with a positive attitude and a genuine interest in UI/UX design. She consistently demonstrated creativity, eagerness to learn new concepts, and the ability to adapt to feedback.\n\nTejashree handled assigned projects independently, completed her work on time, and showed responsibility throughout her internship. I appreciate her dedication, willingness to improve, and commitment to delivering quality work.",
@@ -208,19 +214,22 @@ export const translations: Record<Language, Translations> = {
     },
     projects: {
       cloudpanelTag: "Webリニューアル",
-      cloudpanelTitle: "CloudPanel Webサイト\nリニューアル UI/UXデザイン",
+      cloudpanelTitle: "エンゲージメント率を30%向上させた、CloudPanel Webサイトリニューアル",
       localbiteTag: "UXリサーチ",
-      localbiteTitle: "地域の特産品を発見するモバイルアプリ",
+      localbiteTitle: "訪れる場所のローカルな特産品を発見できるアプリ",
       birlaTag: "プロダクトデザイン",
-      birlaTitle: "Birla Estates ダッシュボード UI/UXデザイン",
+      birlaTitle: "8つの不動産プロジェクトとタスクを一元管理するダッシュボード",
       magentoTag: "Webリニューアル",
-      magentoTitle: "MGT-Commerce Webサイト UI/UXデザイン",
+      magentoTitle: "MGT-Commerceリニューアル : Magentoホスティングのプランを比較しやすく",
     },
     testimonials: {
       tag: "推薦の言葉",
       headingPrefix: "共に働いた仲間からの",
       headingHighlight: "メッセージ",
       subtitle: "これまでにプロジェクトをご一緒した同僚やクライアントからの推薦の声。",
+      card1Role: "i2e consulting pvt ltd AIアーティスト 兼 シニアデザイナー",
+      card2Role: "MGT-Commerce システム管理者チームリード",
+      card3Role: "ソマイヤ大学 UI/UXデザイナー チームリード",
       card1Quote: "グラフィックデザインとUI/UXの両面で卓越した専門性を持つ、非常に優秀なクリエイティブのプロフェッショナルです。\n\n細部への鋭いこだわり、独創的な発想力、そしてデザインの課題を的確に解決する力には目を見張るものがあります。高い技術力と明快なコミュニケーション、概念を論理的に言語化する力も備えており、メンターとしてもリーダーとしても頼もしい存在です。",
       card2Quote: "デザイナーとしての彼女の際立った強みは、複雑な技術概念を深く理解し、エンジニアと高精度に協働できる点にあります。\n\n技術用語やシステムロジックの呑み込みが非常に早く、開発実装をそのまま見据えた正確なソリューションを提示してくれました。部署の垣根を越えたコミュニケーションが抜群で、デザインと開発の架け橋として確かなリーダーシップを発揮しています。",
       card3Quote: "前向きな姿勢とUI/UXへの探究心にあふれ、吸収力が非常に高いデザイナーです。常にクリエイティビティを発揮し、新しい学びを貪欲に取り入れながら、フィードバックを柔軟に昇華させていきました。\n\n任せたプロジェクトを自律的に推進し、納期を守る責任感も抜群です。質の高いアウトプットへのこだわりと誠実な姿勢を、心から高く評価しています。",

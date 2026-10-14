@@ -11,6 +11,7 @@ export const Testimonials: React.FC = () => {
     {
       id: '1',
       name: 'Sayan Chakraborty',
+      role: t.testimonials.card1Role,
       avatar: sayanAvatar,
       quote: t.testimonials.card1Quote,
       positionClass: 'self-start ml-0 sm:ml-4',
@@ -18,6 +19,7 @@ export const Testimonials: React.FC = () => {
     {
       id: '2',
       name: 'Suma Chandrashekar',
+      role: t.testimonials.card2Role,
       avatar: sumaAvatar,
       quote: t.testimonials.card2Quote,
       positionClass: 'self-center sm:ml-[30%] my-12 sm:my-20',
@@ -25,6 +27,7 @@ export const Testimonials: React.FC = () => {
     {
       id: '3',
       name: 'Satish Lokhande',
+      role: t.testimonials.card3Role,
       avatar: satishAvatar,
       quote: t.testimonials.card3Quote,
       positionClass: 'self-end mr-0 sm:mr-4',
@@ -88,11 +91,17 @@ export const Testimonials: React.FC = () => {
             />
           </div>
           <h3 
-            className="font-['Inter'] font-medium text-[17px] leading-[20px] mb-2.5"
+            className="font-['Inter'] font-medium text-[17px] leading-[20px] mb-1"
             style={{ color: '#363C30' }}
           >
             {testimonials[0].name}
           </h3>
+          <p 
+            className="font-['Inter'] font-normal text-[12.5px] sm:text-[13px] leading-[18px] mb-3.5"
+            style={{ color: '#5C6454' }}
+          >
+            {testimonials[0].role}
+          </p>
           <p 
             className="font-['Inter'] font-medium text-[15px] leading-[22px] whitespace-pre-line"
             style={{ color: '#5C6454' }}
@@ -116,11 +125,17 @@ export const Testimonials: React.FC = () => {
             />
           </div>
           <h3 
-            className="font-['Inter'] font-medium text-[17px] leading-[20px] mb-2.5"
+            className="font-['Inter'] font-medium text-[17px] leading-[20px] mb-1"
             style={{ color: '#363C30' }}
           >
             {testimonials[1].name}
           </h3>
+          <p 
+            className="font-['Inter'] font-normal text-[12.5px] sm:text-[13px] leading-[18px] mb-3.5"
+            style={{ color: '#5C6454' }}
+          >
+            {testimonials[1].role}
+          </p>
           <p 
             className="font-['Inter'] font-medium text-[15px] leading-[22px] whitespace-pre-line"
             style={{ color: '#5C6454' }}
@@ -144,11 +159,17 @@ export const Testimonials: React.FC = () => {
             />
           </div>
           <h3 
-            className="font-['Inter'] font-medium text-[17px] leading-[20px] mb-2.5"
+            className="font-['Inter'] font-medium text-[17px] leading-[20px] mb-1"
             style={{ color: '#363C30' }}
           >
             {testimonials[2].name}
           </h3>
+          <p 
+            className="font-['Inter'] font-normal text-[12.5px] sm:text-[13px] leading-[18px] mb-3.5"
+            style={{ color: '#5C6454' }}
+          >
+            {testimonials[2].role}
+          </p>
           <p 
             className="font-['Inter'] font-medium text-[15px] leading-[22px] whitespace-pre-line"
             style={{ color: '#5C6454' }}
