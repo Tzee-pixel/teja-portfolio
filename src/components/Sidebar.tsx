@@ -280,7 +280,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
 
           {/* Bio Text */}
           <p 
-            className="font-['Inter'] font-normal text-[15px] sm:text-[16px] leading-[22px] sm:leading-[24px] w-[248px] mb-8"
+            className="font-['Inter'] font-normal text-[15px] sm:text-[16px] leading-[22px] sm:leading-[24px] w-[248px] mb-8 [text-wrap:pretty]"
             style={{ color: '#5C6454' }}
           >
             {t.sidebar.bio}
@@ -291,7 +291,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
             {!isInnerPage && (
             <a 
               href="#/projects" 
-              className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85"
+              className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85 active:scale-[0.98]"
               style={{ color: '#363C30' }}
             >
               <span className="editorial-link-underline">{t.sidebar.seeProjects}</span>
@@ -301,7 +301,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
             <div>
               <a 
                 href="#/about" 
-                className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85"
+                className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85 active:scale-[0.98]"
                 style={{ color: '#363C30' }}
               >
                 <span className="editorial-link-underline">{t.sidebar.aboutMe}</span>
@@ -311,7 +311,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
             <div>
               <a 
                 href="#/gallery" 
-                className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85"
+                className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85 active:scale-[0.98]"
                 style={{ color: '#363C30' }}
               >
                 <span className="editorial-link-underline">{t.sidebar.gallery}</span>
@@ -323,7 +323,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isInnerPage }) => {
                 href="https://note.com/zende" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85"
+                className="group inline-flex items-center gap-2 font-['Inter'] font-medium text-[16px] leading-[26px] transition-all hover:opacity-85 active:scale-[0.98]"
                 style={{ color: '#363C30' }}
               >
                 <span className="editorial-link-underline">{t.sidebar.readBlog}</span>

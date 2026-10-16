@@ -91,9 +91,15 @@ export const App: React.FC = () => {
       default:
         return (
           <div className="min-h-screen bg-[#FAF8EC] text-[#363C30] font-sans antialiased selection:bg-[#E3DAAE] selection:text-[#363C30] flex flex-col">
+            <a 
+              href="#main-content" 
+              className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#363C30] focus:text-[#FAF8EC] focus:rounded-full focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#E3DAAE] font-['Inter'] text-[13px] font-medium transition-all"
+            >
+              Skip to content
+            </a>
             <div className="relative w-full flex-1 flex flex-col lg:flex-row">
               <Sidebar />
-              <main className="px-6 sm:px-10 pt-4 sm:pt-6 pb-12 lg:border-l-2 lg:border-dashed lg:border-[#E3DAAE] lg:ml-6 lg:pl-10 xl:ml-10 xl:pl-16 lg:pt-[54px] lg:pb-12 lg:pr-[60px] w-full flex-1 min-w-0">
+              <main id="main-content" className="px-6 sm:px-10 pt-4 sm:pt-6 pb-12 lg:border-l-2 lg:border-dashed lg:border-[#E3DAAE] lg:ml-6 lg:pl-10 xl:ml-10 xl:pl-16 lg:pt-[54px] lg:pb-12 lg:pr-[60px] w-full flex-1 min-w-0">
                 <div>
                   <Reveal delayMs={50}>
                     <EditorialHeadline />

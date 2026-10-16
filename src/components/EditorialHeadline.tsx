@@ -6,9 +6,9 @@ export const EditorialHeadline: React.FC = () => {
 
   return (
     <h1 
-      className="text-[32px] sm:text-[42px] md:text-[52px] leading-[38px] sm:leading-[48px] md:leading-[58px] font-medium tracking-[-0.02em] select-none"
+      className="text-[34px] sm:text-[44px] md:text-[54px] lg:text-[56px] leading-[1.14] font-medium tracking-[-0.03em] select-none [text-wrap:balance]"
       style={{ 
-        fontFamily: "'Inter', 'Inter Placeholder', sans-serif",
+        fontFamily: language === 'ja' ? "'Zen Kaku Gothic New', sans-serif" : "'Inter', 'Inter Placeholder', sans-serif",
         color: '#363C30',
       }}
     >

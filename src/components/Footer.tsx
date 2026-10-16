@@ -32,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'default' }) => {
         {/* Left Heading: Created with love / 心を込めたデザイン */}
         <div>
           <h2 
-            className="font-['Inter'] font-medium text-4xl sm:text-5xl lg:text-[54px] leading-[1.1] tracking-tight"
+            className="font-['Inter'] font-medium text-4xl sm:text-5xl lg:text-[54px] leading-[1.1] tracking-tight [text-wrap:balance]"
             style={{ color: primaryColor }}
           >
             {t.footer.headingPrefix}{language === 'en' ? ' ' : ''}

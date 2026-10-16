@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Sidebar } from './Sidebar';
 import { Footer } from './Footer';
 import { useLanguage } from '../context/LanguageContext';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 // Eagerly import all gallery images sorted numerically from 01 to 35
@@ -60,7 +60,7 @@ export const GalleryPage: React.FC = () => {
             {/* Header */}
             <Reveal delayMs={60} className="mb-8 sm:mb-10">
               <h1 
-                className="text-[32px] sm:text-[42px] md:text-[52px] leading-[38px] sm:leading-[48px] md:leading-[58px] font-medium tracking-[-0.02em] select-none mb-3"
+                className="text-[34px] sm:text-[44px] md:text-[52px] leading-[1.14] font-medium tracking-[-0.03em] select-none mb-3 [text-wrap:balance]"
                 style={{ 
                   fontFamily: language === 'ja' ? "'Zen Kaku Gothic New', sans-serif" : "'Inter', 'Inter Placeholder', sans-serif",
                   color: '#363C30', 
@@ -95,7 +95,7 @@ export const GalleryPage: React.FC = () => {
                 )}
               </h1>
               <p 
-                className="font-['Inter'] text-[15px] sm:text-[16px] leading-[24px] text-[#5C6454]"
+                className="font-['Inter'] text-[15px] sm:text-[16px] leading-[24px] text-[#5C6454] max-w-[720px] [text-wrap:pretty]"
                 style={{
                   fontFamily: language === 'ja' ? "'Zen Kaku Gothic New', sans-serif" : "'Inter', sans-serif",
                 }}
@@ -104,6 +104,49 @@ export const GalleryPage: React.FC = () => {
                   ? 'ケーススタディ以外のUI探求、コンセプトワーク、ビジュアル実験のコレクション。'
                   : 'A collection of UI explorations, concept designs, and visual experiments created outside of the main case studies.'}
               </p>
+            </Reveal>
+
+            {/* Top Featured Interactive Prototype: Digital Waterfall */}
+            <Reveal delayMs={100} distancePx={24} className="mb-6 sm:mb-8 max-w-[1150px]">
+              <div className="group relative rounded-[20px] lg:rounded-[24px] overflow-hidden bg-[#FAF8EC] border-2 border-dashed border-[#E3DAAE] shadow-[0_2px_14px_rgba(54,60,48,0.04)] transition-all duration-300 hover:shadow-[0_10px_28px_rgba(54,60,48,0.12)]">
+                {/* Header Bar */}
+                <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-[#E3DAAE]/60 bg-[#FAF8EC]">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className="relative flex h-2.5 w-2.5 shrink-0">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7fb2ff] opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#4f86ff]"></span>
+                    </span>
+                    <span className="font-['Inter'] font-semibold text-[13px] sm:text-[14px] text-[#363C30] truncate">
+                      Digital Waterfall
+                    </span>
+                    <span className="hidden sm:inline-block px-2 py-0.5 rounded-[4px] bg-[#E3DAAE] text-[#363C30] text-[11px] font-medium uppercase tracking-wider">
+                      {language === 'ja' ? 'インタラクティブ 3D' : 'Interactive 3D'}
+                    </span>
+                  </div>
+
+                  <a
+                    href="https://tzee-pixel.github.io/digital-waterfall/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white hover:bg-[#363C30] text-[#363C30] hover:text-[#FAF8EC] border border-[#E3DAAE] text-[12px] sm:text-[13px] font-['Inter'] font-medium transition-all duration-200 shrink-0 shadow-xs group/btn cursor-pointer"
+                    title={language === 'ja' ? '別タブでプロトタイプを開く' : 'Open prototype in new tab'}
+                  >
+                    <span>{language === 'ja' ? '別タブで開く' : 'Open in new tab'}</span>
+                    <ExternalLink className="w-3.5 h-3.5 stroke-[2.2] transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                  </a>
+                </div>
+
+                {/* Interactive Iframe Stage */}
+                <div className="overflow-hidden rounded-b-[18px] lg:rounded-b-[22px] m-1.5 lg:m-2 mt-1.5 bg-[#030407] relative h-[420px] sm:h-[480px] md:h-[540px] lg:h-[600px]">
+                  <iframe
+                    src="https://tzee-pixel.github.io/digital-waterfall/"
+                    title="Digital Waterfall Interactive Prototype"
+                    className="w-full h-full border-0 select-none"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope"
+                  />
+                </div>
+              </div>
             </Reveal>
 
             {/* Responsive Gallery: 1 column on mobile (< sm), 2 columns on sm+ */}

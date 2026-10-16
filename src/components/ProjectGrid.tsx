@@ -164,7 +164,16 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ onSelectProject, exclu
             <article
               key={project.id}
               onClick={() => onSelectProject?.(project.id)}
-              className="group relative flex flex-col rounded-[16px] bg-transparent cursor-pointer select-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(54,60,48,0.08)] overflow-visible pt-4 sm:pt-5"
+              className="group relative flex flex-col rounded-[16px] bg-transparent cursor-pointer select-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(54,60,48,0.08)] active:scale-[0.99] overflow-visible pt-4 sm:pt-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#363C30] focus-visible:ring-offset-4"
+              tabIndex={0}
+              role="button"
+              aria-label={`View project: ${project.title.replace(/\n/g, ' ')}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onSelectProject?.(project.id);
+                }
+              }}
               style={{
                 animationDelay: `${idx * 100}ms`,
               }}
@@ -236,7 +245,7 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ onSelectProject, exclu
                 {/* Project Title & Interactive Arrow Pill */}
                 <div className="flex items-end justify-between gap-3 relative z-30">
                   <h3 
-                    className="font-['Inter'] font-bold text-[18px] sm:text-[20px] md:text-[21px] leading-[24px] sm:leading-[26px] md:leading-[28px] tracking-tight whitespace-pre-line flex-1"
+                    className="font-['Inter'] font-bold text-[18px] sm:text-[20px] md:text-[21px] leading-[24px] sm:leading-[26px] md:leading-[28px] tracking-tight whitespace-pre-line flex-1 [text-wrap:balance]"
                     style={{ color: '#1E2319' }}
                   >
                     {project.title}

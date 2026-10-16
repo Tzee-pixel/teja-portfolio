@@ -25,7 +25,7 @@ export const AllProjectsPage: React.FC<AllProjectsPageProps> = ({ onSelectProjec
           <div>
             <Reveal delayMs={60}>
               <h1 
-                className="text-[32px] sm:text-[42px] md:text-[52px] leading-[38px] sm:leading-[48px] md:leading-[58px] font-medium tracking-[-0.02em] select-none mb-10"
+                className="text-[34px] sm:text-[44px] md:text-[52px] leading-[1.14] font-medium tracking-[-0.03em] select-none mb-10 [text-wrap:balance]"
                 style={{ 
                   fontFamily: language === 'ja' ? "'Zen Kaku Gothic New', sans-serif" : "'Inter', 'Inter Placeholder', sans-serif",
                   color: '#363C30', 

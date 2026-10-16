@@ -50,7 +50,7 @@ export const Testimonials: React.FC = () => {
 
         {/* Heading */}
         <h2 
-          className="font-['Inter'] font-medium text-4xl sm:text-5xl lg:text-[54px] leading-[1.1] tracking-tight mt-1"
+          className="font-['Inter'] font-medium text-4xl sm:text-5xl lg:text-[54px] leading-[1.1] tracking-tight mt-1 [text-wrap:balance]"
           style={{ color: '#363C30' }}
         >
           {t.testimonials.headingPrefix}{' '}
@@ -78,7 +78,7 @@ export const Testimonials: React.FC = () => {
       <div className="relative z-10 flex flex-col pt-8 w-full">
         {/* Card 1: Sayan Chakraborty (Left) */}
         <div 
-          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-start ml-0 mb-36 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(54,60,48,0.08)]"
+          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-start ml-0 mb-36 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(54,60,48,0.10)] active:scale-[0.99]"
           style={{
             border: '5px solid #E3DAAE',
           }}
@@ -103,7 +103,7 @@ export const Testimonials: React.FC = () => {
             {testimonials[0].role}
           </p>
           <p 
-            className="font-['Inter'] font-medium text-[15px] leading-[22px] whitespace-pre-line"
+            className="font-['Inter'] font-medium text-[15px] leading-[23px] whitespace-pre-line [text-wrap:pretty]"
             style={{ color: '#5C6454' }}
           >
             {testimonials[0].quote}
@@ -112,7 +112,7 @@ export const Testimonials: React.FC = () => {
 
         {/* Card 2: Suma Chandrashekar (Center) */}
         <div 
-          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-center mx-auto mb-36 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(54,60,48,0.08)]"
+          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-center mx-auto mb-36 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(54,60,48,0.10)] active:scale-[0.99]"
           style={{
             border: '5px solid #E3DAAE',
           }}
@@ -137,7 +137,7 @@ export const Testimonials: React.FC = () => {
             {testimonials[1].role}
           </p>
           <p 
-            className="font-['Inter'] font-medium text-[15px] leading-[22px] whitespace-pre-line"
+            className="font-['Inter'] font-medium text-[15px] leading-[23px] whitespace-pre-line [text-wrap:pretty]"
             style={{ color: '#5C6454' }}
           >
             {testimonials[1].quote}
@@ -146,7 +146,7 @@ export const Testimonials: React.FC = () => {
 
         {/* Card 3: Satish Lokhande (Right - scroll ends with bottom aligned to subtitle) */}
         <div 
-          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-end mr-0 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(54,60,48,0.08)]"
+          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-end mr-0 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(54,60,48,0.10)] active:scale-[0.99]"
           style={{
             border: '5px solid #E3DAAE',
           }}
@@ -171,7 +171,7 @@ export const Testimonials: React.FC = () => {
             {testimonials[2].role}
           </p>
           <p 
-            className="font-['Inter'] font-medium text-[15px] leading-[22px] whitespace-pre-line"
+            className="font-['Inter'] font-medium text-[15px] leading-[23px] whitespace-pre-line [text-wrap:pretty]"
             style={{ color: '#5C6454' }}
           >
             {testimonials[2].quote}

@@ -24,7 +24,7 @@ export const BlogSection: React.FC = () => {
         {/* Right Announcement Text */}
         <div className="w-full">
           <p 
-            className="font-['Inter'] font-medium text-[26px] sm:text-[30px] leading-[34px] sm:leading-[38px] tracking-tight"
+            className="font-['Inter'] font-medium text-[26px] sm:text-[30px] leading-[34px] sm:leading-[38px] tracking-tight [text-wrap:balance]"
             style={{ color: '#363C30' }}
           >
             {t.blog.text}

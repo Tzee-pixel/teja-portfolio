@@ -23,7 +23,7 @@ export const AboutPage: React.FC = () => {
             {/* Page Title */}
             <Reveal delayMs={50}>
               <h1 
-                className="text-[32px] sm:text-[42px] md:text-[52px] leading-[38px] sm:leading-[48px] md:leading-[58px] font-medium tracking-[-0.02em] select-none mb-8 sm:mb-12"
+                className="text-[34px] sm:text-[44px] md:text-[52px] leading-[1.14] font-medium tracking-[-0.03em] select-none mb-8 sm:mb-12 [text-wrap:balance]"
                 style={{ 
                   fontFamily: language === 'ja' ? "'Zen Kaku Gothic New', sans-serif" : "'Inter', 'Inter Placeholder', sans-serif",
                   color: '#363C30', 
@@ -87,32 +87,32 @@ export const AboutPage: React.FC = () => {
                   className="space-y-6"
                 >
                   {/* Paragraph 1: Lead Intro */}
-                  <p className="text-[18px] sm:text-[20px] leading-[30px] sm:leading-[34px] font-medium text-[#363C30]">
+                  <p className="text-[18px] sm:text-[20px] leading-[30px] sm:leading-[34px] font-medium text-[#363C30] [text-wrap:pretty]">
                     {content.lead}
                   </p>
 
                   {/* Paragraph 2: Journey */}
-                  <p className="text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px] text-[#5C6454]">
+                  <p className="text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px] text-[#5C6454] [text-wrap:pretty]">
                     {content.p2}
                   </p>
 
                   {/* Paragraph 3: Experience at MGT & CloudPanel */}
-                  <p className="text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px] text-[#5C6454]">
+                  <p className="text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px] text-[#5C6454] [text-wrap:pretty]">
                     {content.p3}
                   </p>
 
                   {/* Paragraph 4: Japan & AI */}
-                  <p className="text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px] text-[#5C6454]">
+                  <p className="text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px] text-[#5C6454] [text-wrap:pretty]">
                     {content.p4}
                   </p>
 
                   {/* Paragraph 5: Outside of design / JLPT */}
-                  <p className="text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px] text-[#5C6454]">
+                  <p className="text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px] text-[#5C6454] [text-wrap:pretty]">
                     {content.p5}
                   </p>
 
                   {/* Paragraph 6: Philosophy & curiosity */}
-                  <p className="text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px] text-[#5C6454]">
+                  <p className="text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px] text-[#5C6454] [text-wrap:pretty]">
                     {content.p6}
                   </p>
                 </div>
