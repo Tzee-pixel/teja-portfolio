@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import noteIconBlack from '../assets/note-icon-black.png';
 import linkedinIcon from '../assets/linkedin-icon.png';
@@ -17,30 +17,30 @@ export const SocialLinksSection: React.FC = () => {
         {/* Left Badge */}
         <div>
           <span 
-            className="inline-block px-3.5 py-1.5 rounded-[4px] font-['Inter'] font-semibold text-[13px] leading-[17px] tracking-normal shadow-xs whitespace-nowrap"
-            style={{ backgroundColor: '#E3DAAE', color: '#363C30' }}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full font-['Inter'] font-semibold text-[11px] uppercase tracking-[0.2em] shadow-2xs whitespace-nowrap transition-transform duration-300 hover:scale-105 select-none"
+            style={{ backgroundColor: '#E3DAAE', color: '#363C30', border: '1px solid rgba(54,60,48,0.06)' }}
           >
             {t.social.badge}
           </span>
         </div>
 
-        {/* Right Cards Container (Bento frame matching #E3DAAE) */}
+        {/* Right Cards Container (Double-Bezel Bento shell matching #E3DAAE) */}
         <div className="w-full">
           <div 
-            className="rounded-[8px] p-[5px] w-full"
-            style={{ backgroundColor: '#E3DAAE' }}
+            className="rounded-[22px] p-2 w-full border border-[#363C30]/[0.08] shadow-[0_8px_24px_rgba(54,60,48,0.03)]"
+            style={{ backgroundColor: 'rgba(227, 218, 174, 0.75)' }}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[5px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               
               {/* Card 1: Note.com */}
               <a
                 href="https://note.com/zende"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-[5px] p-4 sm:p-5 flex items-center justify-between group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_6px_20px_rgba(54,60,48,0.08)] active:scale-[0.99]"
+                className="bg-white/95 rounded-[16px] p-4 sm:p-5 flex items-center justify-between group border border-[#363C30]/[0.04] shadow-[inset_0_1px_2px_rgba(255,255,255,0.95)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-[0_12px_28px_rgba(54,60,48,0.08)] active:scale-[0.985]"
               >
                 {/* Note.com Icon Squircle (Black squircle with white 'n') */}
-                <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-[14px] flex items-center justify-center overflow-hidden flex-shrink-0 shadow-xs bg-black transition-transform duration-300 group-hover:scale-105">
+                <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-[16px] flex items-center justify-center overflow-hidden flex-shrink-0 shadow-xs bg-black transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105">
                   <img 
                     src={noteIconBlack} 
                     alt="note.com logo" 
@@ -56,12 +56,11 @@ export const SocialLinksSection: React.FC = () => {
                   >
                     {t.social.mediumLabel}
                   </span>
-                  <div className="inline-flex items-center gap-1.5 font-['Inter'] font-medium text-[15px] sm:text-[16px] text-[#363C30] group-hover:text-[#59866F] transition-colors duration-200">
+                  <div className="inline-flex items-center gap-2 font-['Inter'] font-semibold text-[15px] sm:text-[16px] text-[#363C30] group-hover:text-[#59866F] transition-colors duration-300">
                     <span>Note</span>
-                    <span className="relative w-5 h-5 inline-flex items-center justify-center">
-                      <ArrowUpRight className="w-[18px] h-[18px] absolute transition-all duration-200 group-hover:opacity-0 group-hover:scale-75 stroke-[2.2] text-[#5C6454]" />
-                      <ArrowRight className="w-[18px] h-[18px] absolute opacity-0 scale-75 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0.5 stroke-[2.2] text-[#59866F]" />
-                    </span>
+                    <div className="w-7 h-7 rounded-full bg-[#FAF8EC] border border-[#363C30]/10 flex items-center justify-center text-[#5C6454] group-hover:text-[#FAF8EC] group-hover:bg-[#59866F] group-hover:border-[#59866F] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110">
+                      <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.4] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
                   </div>
                 </div>
               </a>
@@ -71,10 +70,10 @@ export const SocialLinksSection: React.FC = () => {
                 href="https://www.linkedin.com/in/tejashree-zende/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-[5px] p-4 sm:p-5 flex items-center justify-between group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_6px_20px_rgba(54,60,48,0.08)] active:scale-[0.99]"
+                className="bg-white/95 rounded-[16px] p-4 sm:p-5 flex items-center justify-between group border border-[#363C30]/[0.04] shadow-[inset_0_1px_2px_rgba(255,255,255,0.95)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-[0_12px_28px_rgba(54,60,48,0.08)] active:scale-[0.985]"
               >
                 {/* LinkedIn Icon Squircle */}
-                <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-[14px] flex items-center justify-center overflow-hidden flex-shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-105">
+                <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-[16px] flex items-center justify-center overflow-hidden flex-shrink-0 shadow-xs transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105">
                   <img 
                     src={linkedinIcon} 
                     alt="LinkedIn logo" 
@@ -90,12 +89,11 @@ export const SocialLinksSection: React.FC = () => {
                   >
                     {t.social.linkedInLabel}
                   </span>
-                  <div className="inline-flex items-center gap-1.5 font-['Inter'] font-medium text-[15px] sm:text-[16px] text-[#363C30] group-hover:text-[#6E7FB7] transition-colors duration-200">
+                  <div className="inline-flex items-center gap-2 font-['Inter'] font-semibold text-[15px] sm:text-[16px] text-[#363C30] group-hover:text-[#6E7FB7] transition-colors duration-300">
                     <span>LinkedIn</span>
-                    <span className="relative w-5 h-5 inline-flex items-center justify-center">
-                      <ArrowUpRight className="w-[18px] h-[18px] absolute transition-all duration-200 group-hover:opacity-0 group-hover:scale-75 stroke-[2.2] text-[#5C6454]" />
-                      <ArrowRight className="w-[18px] h-[18px] absolute opacity-0 scale-75 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0.5 stroke-[2.2] text-[#6E7FB7]" />
-                    </span>
+                    <div className="w-7 h-7 rounded-full bg-[#FAF8EC] border border-[#363C30]/10 flex items-center justify-center text-[#5C6454] group-hover:text-[#FAF8EC] group-hover:bg-[#6E7FB7] group-hover:border-[#6E7FB7] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110">
+                      <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.4] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
                   </div>
                 </div>
               </a>

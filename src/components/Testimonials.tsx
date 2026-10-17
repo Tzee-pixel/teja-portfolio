@@ -38,11 +38,11 @@ export const Testimonials: React.FC = () => {
     <section id="testimonials" className="relative pt-20 pb-20 min-h-[1200px]">
       {/* Sticky Header Centered in Viewport */}
       <div className="sticky top-28 z-0 text-center pointer-events-none">
-        {/* Category Pill Tag */}
-        <div className="inline-block mb-8">
+        {/* Microscopic Pill Category Tag */}
+        <div className="inline-block mb-6 sm:mb-8 pointer-events-auto">
           <span 
-            className="inline-block px-3.5 py-1.5 rounded-[4px] font-['Inter'] font-semibold text-[13px] leading-[17px] tracking-normal"
-            style={{ backgroundColor: '#E3DAAE', color: '#363C30' }}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full font-['Inter'] font-semibold text-[11px] uppercase tracking-[0.2em] shadow-2xs transition-transform duration-300 hover:scale-105 select-none"
+            style={{ backgroundColor: '#E3DAAE', color: '#363C30', border: '1px solid rgba(54,60,48,0.06)' }}
           >
             {t.testimonials.tag}
           </span>
@@ -76,107 +76,50 @@ export const Testimonials: React.FC = () => {
 
       {/* Floating Staggered Testimonial Cards that scroll over the sticky header */}
       <div className="relative z-10 flex flex-col pt-8 w-full">
-        {/* Card 1: Sayan Chakraborty (Left) */}
-        <div 
-          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-start ml-0 mb-36 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(54,60,48,0.10)] active:scale-[0.99]"
-          style={{
-            border: '5px solid #E3DAAE',
-          }}
-        >
-          <div className="w-10 h-10 rounded-full overflow-hidden mb-[32px] bg-gray-100">
-            <img 
-              src={testimonials[0].avatar} 
-              alt={testimonials[0].name} 
-              className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-110"
-            />
-          </div>
-          <h3 
-            className="font-['Inter'] font-medium text-[17px] leading-[20px] mb-1"
-            style={{ color: '#363C30' }}
-          >
-            {testimonials[0].name}
-          </h3>
-          <p 
-            className="font-['Inter'] font-normal text-[12.5px] sm:text-[13px] leading-[18px] mb-3.5"
-            style={{ color: '#5C6454' }}
-          >
-            {testimonials[0].role}
-          </p>
-          <p 
-            className="font-['Inter'] font-medium text-[15px] leading-[23px] whitespace-pre-line [text-wrap:pretty]"
-            style={{ color: '#5C6454' }}
-          >
-            {testimonials[0].quote}
-          </p>
-        </div>
+        {testimonials.map((item, index) => {
+          const alignmentClasses = [
+            'self-start ml-0 mb-32 sm:mb-36',
+            'self-center mx-auto mb-32 sm:mb-36',
+            'self-end mr-0',
+          ][index];
 
-        {/* Card 2: Suma Chandrashekar (Center) */}
-        <div 
-          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-center mx-auto mb-36 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(54,60,48,0.10)] active:scale-[0.99]"
-          style={{
-            border: '5px solid #E3DAAE',
-          }}
-        >
-          <div className="w-10 h-10 rounded-full overflow-hidden mb-[32px] bg-gray-100">
-            <img 
-              src={testimonials[1].avatar} 
-              alt={testimonials[1].name} 
-              className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-110"
-            />
-          </div>
-          <h3 
-            className="font-['Inter'] font-medium text-[17px] leading-[20px] mb-1"
-            style={{ color: '#363C30' }}
-          >
-            {testimonials[1].name}
-          </h3>
-          <p 
-            className="font-['Inter'] font-normal text-[12.5px] sm:text-[13px] leading-[18px] mb-3.5"
-            style={{ color: '#5C6454' }}
-          >
-            {testimonials[1].role}
-          </p>
-          <p 
-            className="font-['Inter'] font-medium text-[15px] leading-[23px] whitespace-pre-line [text-wrap:pretty]"
-            style={{ color: '#5C6454' }}
-          >
-            {testimonials[1].quote}
-          </p>
-        </div>
+          return (
+            <div 
+              key={item.id}
+              className={`group w-full max-w-[400px] cursor-default ${alignmentClasses} rounded-[24px] p-2 bg-[#E3DAAE]/70 border border-[#363C30]/[0.08] shadow-[0_8px_24px_rgba(54,60,48,0.04)] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-[0_20px_44px_rgba(54,60,48,0.08)] active:scale-[0.985]`}
+            >
+              {/* Inner Core Container */}
+              <div className="rounded-[18px] bg-white/95 p-6 sm:p-7 border border-[#363C30]/[0.04] shadow-[inset_0_1px_2px_rgba(255,255,255,0.95)] flex flex-col h-full">
+                {/* Avatar with Double-Bezel frame */}
+                <div className="w-12 h-12 rounded-full p-0.5 bg-[#E3DAAE]/40 border border-[#363C30]/[0.08] mb-6 overflow-hidden flex-shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105">
+                  <img 
+                    src={item.avatar} 
+                    alt={item.name} 
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
 
-        {/* Card 3: Satish Lokhande (Right - scroll ends with bottom aligned to subtitle) */}
-        <div 
-          className="group w-full max-w-[390px] bg-white rounded-[5px] p-[24px] cursor-default self-end mr-0 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(54,60,48,0.10)] active:scale-[0.99]"
-          style={{
-            border: '5px solid #E3DAAE',
-          }}
-        >
-          <div className="w-10 h-10 rounded-full overflow-hidden mb-[32px] bg-gray-100">
-            <img 
-              src={testimonials[2].avatar} 
-              alt={testimonials[2].name} 
-              className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-110"
-            />
-          </div>
-          <h3 
-            className="font-['Inter'] font-medium text-[17px] leading-[20px] mb-1"
-            style={{ color: '#363C30' }}
-          >
-            {testimonials[2].name}
-          </h3>
-          <p 
-            className="font-['Inter'] font-normal text-[12.5px] sm:text-[13px] leading-[18px] mb-3.5"
-            style={{ color: '#5C6454' }}
-          >
-            {testimonials[2].role}
-          </p>
-          <p 
-            className="font-['Inter'] font-medium text-[15px] leading-[23px] whitespace-pre-line [text-wrap:pretty]"
-            style={{ color: '#5C6454' }}
-          >
-            {testimonials[2].quote}
-          </p>
-        </div>
+                <h3 
+                  className="font-['Inter'] font-semibold text-[17px] leading-[20px] mb-1 tracking-tight"
+                  style={{ color: '#1E2319' }}
+                >
+                  {item.name}
+                </h3>
+                <p 
+                  className="font-['Inter'] font-normal text-[12.5px] sm:text-[13px] leading-[18px] mb-4"
+                  style={{ color: '#5C6454' }}
+                >
+                  {item.role}
+                </p>
+                <p 
+                  className="font-['Inter'] font-medium text-[15px] sm:text-[15.5px] leading-[24px] whitespace-pre-line [text-wrap:pretty] text-[#363C30]"
+                >
+                  {item.quote}
+                </p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
